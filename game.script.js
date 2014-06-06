@@ -1,0 +1,4 @@
+Gameloop.func = function()
+{
+	//?!
+}
