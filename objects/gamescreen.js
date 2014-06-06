@@ -1,8 +1,11 @@
 var Gamescreen = new function()
 {
-	var DIMENSION = 17, SCALE = 64;
-	this.height = Math.round(DIMENSION * SCALE);
-	this.width = Math.round(this.height * 1.67);
+	this.scale = 64;
+	
+	this.height = 17 * this.scale;
+	this.width = this.height * 1.67;
+	this.width = Math.round(this.width);
+	this.height = Math.round(this.height);
 	
 	this.getWidth = function()
 	{
@@ -14,12 +17,17 @@ var Gamescreen = new function()
 		return this.height;
 	}
 	
-	this.randomizeX = function()
+	this.getScale = function()
+	{
+		return this.scale;
+	}
+	
+	this.getRandomX = function()
 	{
 		return Math.floor(Math.random() * this.getWidth());
 	}
 	
-	this.randomizeY = function()
+	this.getRandomY = function()
 	{
 		return Math.floor(Math.random() * this.getHeight());
 	}
