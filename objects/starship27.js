@@ -1,7 +1,6 @@
-var Starship27 = function(position, color)
+function Starship27(position, color)
 {
-	this.objid = Starship27.generateObjid();
-	Objedex.starship27s[this.objid] = this;
+	Objedex.add(this);
 	
 	this.color = color || "#EEE";
 	this.position = position || {x: 0, y: 0};
@@ -16,13 +15,6 @@ var Starship27 = function(position, color)
 	//this.shields = 1;
 	
 	this.controls = ControlSchemes[this.objid];
-}
-
-Starship27.objid = 0;
-
-Starship27.generateObjid = function()
-{
-	return this.objid++;
 }
 
 Starship27.prototype.moveUp = function()
