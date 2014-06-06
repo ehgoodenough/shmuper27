@@ -1,6 +1,7 @@
 var Starship27 = function(position, color)
 {
 	this.objid = Starship27.generateObjid();
+	Objedex.starship27s[this.objid] = this;
 	
 	this.color = color || "#EEE";
 	this.position = position || {x: 0, y: 0};
