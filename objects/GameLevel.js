@@ -1,5 +1,7 @@
 function GameLevel(filename)
 {
+	Objedex.add(this);
+	
 	this.gx = 0;
 	
 	GameLevel.generateStars(100);

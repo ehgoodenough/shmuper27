@@ -11,11 +11,9 @@ var Objedex = new function()
 		
 		var protostuff = Object.getPrototypeOf(stuff);
 		var classname = protostuff.constructor.name;
-		
 		if(!protostuff.objid)
 			protostuff.objid = 0;
 		stuff.objid = protostuff.objid++;
-		
 		if(!this.objects[classname])
 			this.objects[classname] = new Object();
 		this.objects[classname][stuff.objid] = stuff;
@@ -25,7 +23,6 @@ var Objedex = new function()
 	{
 		var protostuff = Object.getPrototypeOf(stuff);
 		var classname = protostuff.constructor.name;
-		
 		delete this.objects[classname][stuff.objid];
 	}
 	
@@ -53,5 +50,10 @@ var Objedex = new function()
 				for(var s in stuff)
 					if(stuff[s].render)
 						this.render(stuff[s]);
+	}
+	
+	this.reset = function()
+	{
+		this.objects = new Object();
 	}
 }
