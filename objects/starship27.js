@@ -2,14 +2,14 @@ function Starship27(position, color)
 {
 	Objedex.add(this);
 	
-	this.color = color || "#EEE";
-	this.position = position || {x: 0, y: 0};
-	
 	var scale = Gamescreen.getScale();
 	
 	this.width = scale * 3;
 	this.height = scale * 2;
 	this.speed = scale * 0.125;
+	
+	this.color = color || "#EEE";
+	this.position = position || {x: 0, y: 0};
 	
 	//this.guns = {};
 	//this.shields = 1;
