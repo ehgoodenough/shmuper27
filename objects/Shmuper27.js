@@ -2,19 +2,17 @@ function Shmuper27(position, color)
 {
 	Objedex.add(this);
 	
-	var scale = Gamescreen.getScale();
-	
-	this.width = scale * 3;
-	this.height = scale * 2;
-	this.speed = scale * 0.125;
+	this.width = SCALE * 3;
+	this.height = SCALE * 2;
+	this.speed = SCALE * 0.125;
 	
 	this.color = color || "#EEE";
+	
 	this.position = position || {x: 0, y: 0};
 	
-	//this.guns = {};
-	//this.shields = 1;
+	this.model = Shmuper27.getModel();
 	
-	this.controls = ControlSchemes[this.objid];
+	this.controls = Shmuper27.getControlScheme(this.objid);
 }
 
 Shmuper27.prototype.moveUp = function()
@@ -99,20 +97,30 @@ Shmuper27.prototype.render = function()
 	return rendering;
 }
 
-var ControlSchemes = 
-[
-	{
-		"move up": "up arrow",
-		"move down": "down arrow",
-		"move left": "left arrow",
-		"move right": "right arrow",
-		"use weapon": "z"
-	},
-	{
-		"move up": "i",
-		"move down": "k",
-		"move left": "j",
-		"move right": "l",
-		"use weapon": "g"
-	}
-]
+Shmuper27.getModel = function()
+{
+	return "SH#27";
+}
+
+Shmuper27.getControlScheme = function(objid)
+{
+	var ControlSchemes = 
+	[
+		{
+			"move up": "up arrow",
+			"move down": "down arrow",
+			"move left": "left arrow",
+			"move right": "right arrow",
+			"use weapon": "z"
+		},
+		{
+			"move up": "i",
+			"move down": "k",
+			"move left": "j",
+			"move right": "l",
+			"use weapon": "g"
+		}
+	]
+	
+	return ControlSchemes[objid];
+}

@@ -1,8 +1,8 @@
+var SCALE = 64;
+
 var Gamescreen = new function()
 {
-	this.scale = 64;
-	
-	this.height = 17 * this.scale;
+	this.height = 17 * SCALE;
 	this.width = this.height * 1.67;
 	this.width = Math.round(this.width);
 	this.height = Math.round(this.height);
@@ -15,11 +15,6 @@ var Gamescreen = new function()
 	this.getHeight = function()
 	{
 		return this.height;
-	}
-	
-	this.getScale = function()
-	{
-		return this.scale;
 	}
 	
 	this.getRandomX = function()
