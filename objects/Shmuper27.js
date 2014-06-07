@@ -1,4 +1,4 @@
-function Starship27(position, color)
+function Shmuper27(position, color)
 {
 	Objedex.add(this);
 	
@@ -17,51 +17,51 @@ function Starship27(position, color)
 	this.controls = ControlSchemes[this.objid];
 }
 
-Starship27.prototype.moveUp = function()
+Shmuper27.prototype.moveUp = function()
 {
 	var y = this.position.y - this.speed;
 	if(y > 0) {this.position.y = y;}
 }
 
-Starship27.prototype.moveDown = function()
+Shmuper27.prototype.moveDown = function()
 {
 	var y = this.position.y + this.speed;
 	if(y < Gamescreen.getHeight()) {this.position.y = y;}
 }
 
-Starship27.prototype.moveLeft = function()
+Shmuper27.prototype.moveLeft = function()
 {
 	var x = this.position.x - this.speed;
 	if(x > 0) {this.position.x = x;}
 }
 
-Starship27.prototype.moveRight = function()
+Shmuper27.prototype.moveRight = function()
 {
 	var x = this.position.x + this.speed;
 	if(x < Gamescreen.getWidth()) {this.position.x = x;}
 }
 
-Starship27.prototype.getUpPosition = function()
+Shmuper27.prototype.getUpPosition = function()
 {
 	return this.position.y - (this.height / 2);
 }
 
-Starship27.prototype.getDownPosition = function()
+Shmuper27.prototype.getDownPosition = function()
 {
 	return this.position.y + (this.height / 2);
 }
 
-Starship27.prototype.getLeftPosition = function()
+Shmuper27.prototype.getLeftPosition = function()
 {
 	return this.position.x - (this.width / 2);
 }
 
-Starship27.prototype.getRightPosition = function()
+Shmuper27.prototype.getRightPosition = function()
 {
 	return this.position.x + (this.width / 2);
 }
 
-Starship27.prototype.update = function()
+Shmuper27.prototype.update = function()
 {
 	if(key.getState(this.controls["move right"]))
 	{
@@ -82,7 +82,7 @@ Starship27.prototype.update = function()
 	}
 }
 
-Starship27.prototype.render = function()
+Shmuper27.prototype.render = function()
 {
 	var rendering = new Object();
 	
