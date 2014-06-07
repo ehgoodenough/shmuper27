@@ -4,7 +4,7 @@ function Rebelcruiser(y)
 	
 	this.width = SCALE * 3;
 	this.height = SCALE * 2;
-	this.speed = SCALE * 0.125;
+	this.speed = SCALE * 0.0625;
 	
 	this.color = "#EEE";
 	
@@ -13,11 +13,28 @@ function Rebelcruiser(y)
 	this.position.x = Gamescreen.getWidth() + this.getHalfWidth();
 	
 	this.model = Rebelcruiser.getModel();
+	
+	this.controls = Rebelcruiser.getControlPattern("do not move");
 }
 
-Rebelcruiser.getModel = function()
+Rebelcruiser.prototype.getUpPosition = function()
 {
-	return "RC-" + (Math.floor(Math.random() * 90000) + 10000);
+	return this.position.y - (this.height / 2);
+}
+
+Rebelcruiser.prototype.getDownPosition = function()
+{
+	return this.position.y + (this.height / 2);
+}
+
+Rebelcruiser.prototype.getLeftPosition = function()
+{
+	return this.position.x - (this.width / 2);
+}
+
+Rebelcruiser.prototype.getRightPosition = function()
+{
+	return this.position.x + (this.width / 2);
 }
 
 Rebelcruiser.prototype.getWidth = function()
@@ -42,7 +59,12 @@ Rebelcruiser.prototype.getHalfHeight = function()
 
 Rebelcruiser.prototype.update = function()
 {
-	this.position.x--;
+	this.controls();
+	
+	if(this.position.x <= 0 - this.getHalfWidth())
+	{
+		Objedex.remove(this);
+	}
 }
 
 Rebelcruiser.prototype.render = function()
@@ -60,4 +82,22 @@ Rebelcruiser.prototype.render = function()
 	rendering.fillStyle = this.color;
 	
 	return rendering;
+}
+
+Rebelcruiser.getModel = function()
+{
+	return "RC-" + (Math.floor(Math.random() * 90000) + 10000);
+}
+
+Rebelcruiser.getControlPattern = function(type)
+{
+	var ControlPatterns =
+	{
+		"do not move": function()
+		{
+			this.position.x -= 4 + SPEEDUP;
+		}
+	}
+	
+	return ControlPatterns[type];
 }

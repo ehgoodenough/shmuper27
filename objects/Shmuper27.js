@@ -59,6 +59,26 @@ Shmuper27.prototype.getRightPosition = function()
 	return this.position.x + (this.width / 2);
 }
 
+Shmuper27.prototype.getWidth = function()
+{
+	return this.width;
+}
+
+Shmuper27.prototype.getHeight = function()
+{
+	return this.height;
+}
+
+Shmuper27.prototype.getHalfWidth = function()
+{
+	return this.width / 2;
+}
+
+Shmuper27.prototype.getHalfHeight = function()
+{
+	return this.height / 2;
+}
+
 Shmuper27.prototype.update = function()
 {
 	if(key.getState(this.controls["move right"]))

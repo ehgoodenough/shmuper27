@@ -21,6 +21,14 @@ var Objedex = new function()
 		this.objects[classname][stuff.objid] = stuff;
 	}
 	
+	this.remove = function(stuff)
+	{
+		var protostuff = Object.getPrototypeOf(stuff);
+		var classname = protostuff.constructor.name;
+		
+		delete this.objects[classname][stuff.objid];
+	}
+	
 	this.update = function(stuff)
 	{
 		if(typeof stuff == "string")
