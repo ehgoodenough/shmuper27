@@ -1,16 +1,19 @@
-function GameLevel(filename)
+function GameLevel(events)
 {
 	Objedex.add(this);
 	
 	this.gx = 0;
+	this.gspd = 1;
 	
 	GameLevel.generateStars(100);
 	
-	this.events = [{gx: 100, y: 100}, {gx: 200, y: 200}, {gx: 300, y: 400}, {gx: 400, y: 300}];
+	this.events = events;
 }
 
 GameLevel.prototype.update = function()
 {
+	this.gx += this.gspd;
+	
 	if(this.events.length > 0)
 	{
 		if(this.gx >= this.events[0].gx)
@@ -20,7 +23,7 @@ GameLevel.prototype.update = function()
 		}
 	}
 	
-	$("#debug").text(this.gx++);
+	$("#debug").text(this.gx);
 }
 
 GameLevel.generateStars = function(amount)
