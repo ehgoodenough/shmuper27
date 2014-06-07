@@ -27,8 +27,8 @@ function Star(parallax)
 	//Randomize the position of
 	//the star across the screen.
 	this.position = new Object();
-	this.position.x = Gamescreen.getRandomX();
-	this.position.y = Gamescreen.getRandomY();
+	this.position.x = GameScreen.getRandomX();
+	this.position.y = GameScreen.getRandomY();
 	
 	//Randomize the color of the star.
 	this.color = Star.getRandomColor();
@@ -50,8 +50,8 @@ Star.prototype.update = function()
 	{
 		//..then rerandomize the attributes of
 		//the star, including position and color.
-		this.position.x = Gamescreen.getWidth() + 4;
-		this.position.y = Gamescreen.getRandomY();
+		this.position.x = GameScreen.getWidth() + 4;
+		this.position.y = GameScreen.getRandomY();
 		this.color = Star.getRandomColor();
 	}
 }

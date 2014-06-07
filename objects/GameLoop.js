@@ -1,4 +1,4 @@
-var Gameloop = new function()
+var GameLoop = new function()
 {
 	this.framerate = new function()
 	{
@@ -39,7 +39,7 @@ var Gameloop = new function()
 	this.frame = function()
 	{
 		this.framerate.preupdate();
-		Gamescreen.dom.clearCanvas();
+		GameScreen.dom.clearCanvas();
 		if(this.func) {this.func();}
 		this.framerate.postupdate();
 		

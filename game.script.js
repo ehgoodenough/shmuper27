@@ -1,14 +1,14 @@
-new Shmuper27({x: Gamescreen.getWidth() / 4, y: Gamescreen.getHeight() / 2}, "maroon");
-var level = new Gamelevel("tutorial.level");
+new Shmuper27({x: GameScreen.getWidth() / 4, y: GameScreen.getHeight() / 2}, "maroon");
+var level = new GameLevel("tutorial.level");
 
-Gameloop.func = function()
+GameLoop.func = function()
 {
 	level.update();
 	Objedex.update("Star");
 	Objedex.update("Shmuper27");
-	Objedex.update("Rebelcruiser");
+	Objedex.update("RebelCruiser");
 	
 	Objedex.render("Star");
-	Objedex.render("Rebelcruiser");
+	Objedex.render("RebelCruiser");
 	Objedex.render("Shmuper27");
 }

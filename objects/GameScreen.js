@@ -1,6 +1,6 @@
 var SCALE = 64;
 
-var Gamescreen = new function()
+var GameScreen = new function()
 {
 	this.height = 17 * SCALE;
 	this.width = this.height * 1.67;

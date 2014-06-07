@@ -24,7 +24,7 @@ Shmuper27.prototype.moveUp = function()
 Shmuper27.prototype.moveDown = function()
 {
 	var y = this.position.y + this.speed;
-	if(y < Gamescreen.getHeight()) {this.position.y = y;}
+	if(y < GameScreen.getHeight()) {this.position.y = y;}
 }
 
 Shmuper27.prototype.moveLeft = function()
@@ -36,7 +36,7 @@ Shmuper27.prototype.moveLeft = function()
 Shmuper27.prototype.moveRight = function()
 {
 	var x = this.position.x + this.speed;
-	if(x < Gamescreen.getWidth()) {this.position.x = x;}
+	if(x < GameScreen.getWidth()) {this.position.x = x;}
 }
 
 Shmuper27.prototype.getUpPosition = function()

@@ -1,4 +1,4 @@
-function Rebelcruiser(y)
+function RebelCruiser(y)
 {
 	Objedex.add(this);
 	
@@ -9,55 +9,55 @@ function Rebelcruiser(y)
 	this.color = "#EEE";
 	
 	this.position = new Object();
-	this.position.y = y || Gamescreen.getRandomY();
-	this.position.x = Gamescreen.getWidth() + this.getHalfWidth();
+	this.position.y = y || GameScreen.getRandomY();
+	this.position.x = GameScreen.getWidth() + this.getHalfWidth();
 	
-	this.model = Rebelcruiser.getModel();
+	this.model = RebelCruiser.getModel();
 	
-	this.controls = Rebelcruiser.getControlPattern("do not move");
+	this.controls = RebelCruiser.getControlPattern("do not move");
 }
 
-Rebelcruiser.prototype.getUpPosition = function()
+RebelCruiser.prototype.getUpPosition = function()
 {
 	return this.position.y - (this.height / 2);
 }
 
-Rebelcruiser.prototype.getDownPosition = function()
+RebelCruiser.prototype.getDownPosition = function()
 {
 	return this.position.y + (this.height / 2);
 }
 
-Rebelcruiser.prototype.getLeftPosition = function()
+RebelCruiser.prototype.getLeftPosition = function()
 {
 	return this.position.x - (this.width / 2);
 }
 
-Rebelcruiser.prototype.getRightPosition = function()
+RebelCruiser.prototype.getRightPosition = function()
 {
 	return this.position.x + (this.width / 2);
 }
 
-Rebelcruiser.prototype.getWidth = function()
+RebelCruiser.prototype.getWidth = function()
 {
 	return this.width;
 }
 
-Rebelcruiser.prototype.getHeight = function()
+RebelCruiser.prototype.getHeight = function()
 {
 	return this.height;
 }
 
-Rebelcruiser.prototype.getHalfWidth = function()
+RebelCruiser.prototype.getHalfWidth = function()
 {
 	return this.width / 2;
 }
 
-Rebelcruiser.prototype.getHalfHeight = function()
+RebelCruiser.prototype.getHalfHeight = function()
 {
 	return this.height / 2;
 }
 
-Rebelcruiser.prototype.update = function()
+RebelCruiser.prototype.update = function()
 {
 	this.controls();
 	
@@ -67,7 +67,7 @@ Rebelcruiser.prototype.update = function()
 	}
 }
 
-Rebelcruiser.prototype.render = function()
+RebelCruiser.prototype.render = function()
 {
 	var rendering = new Object();
 	
@@ -84,12 +84,12 @@ Rebelcruiser.prototype.render = function()
 	return rendering;
 }
 
-Rebelcruiser.getModel = function()
+RebelCruiser.getModel = function()
 {
 	return "RC-" + (Math.floor(Math.random() * 90000) + 10000);
 }
 
-Rebelcruiser.getControlPattern = function(type)
+RebelCruiser.getControlPattern = function(type)
 {
 	var ControlPatterns =
 	{
