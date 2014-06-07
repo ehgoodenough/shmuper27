@@ -1,6 +1,5 @@
 new Shmuper27({x: Gamescreen.getWidth() / 4, y: Gamescreen.getHeight() / 2}, "maroon");
-new Starscape(100, 4);
-new Rebelfleet();
+new Gamelevel("tutorial.level");
 
 Gameloop.func = function()
 {

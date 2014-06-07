@@ -95,7 +95,7 @@ Rebelcruiser.getControlPattern = function(type)
 	{
 		"do not move": function()
 		{
-			this.position.x -= 4 + SPEEDUP;
+			this.position.x -= PARALLAX + SPEEDUP;
 		}
 	}
 	

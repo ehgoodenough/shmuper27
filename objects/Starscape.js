@@ -1,7 +1,7 @@
-function Starscape(total, depths)
+function Starscape(amount)
 {
-	for(var i = 0; i < total; i++)
+	for(var i = 0; i < amount; i++)
 	{
-		new Star(i % depths + 1);
+		new Star(i % PARALLAX + 1);
 	}
 }

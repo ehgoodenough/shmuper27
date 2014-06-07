@@ -92,3 +92,4 @@ Star.getRandomColor = function()
 }
 
 var SPEEDUP = 0; //todo: refactor this elsewhere!!
+var PARALLAX = 4; //todo: also refactor this elsewhere!!
