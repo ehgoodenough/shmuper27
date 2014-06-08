@@ -18,11 +18,8 @@
 
 function Star(parallax)
 {
-	//Configure the parallax for
-	//this star. If no parameter
-	//was provided, then just
-	//default to a value of two.
-	this.parallax = parallax || 2;
+	//Configure the parallax.
+	this.parallax = parallax;
 	
 	//Randomize the position of
 	//the star across the screen.
@@ -42,7 +39,8 @@ Star.prototype.update = function()
 	//Move the star to the left, respecting
 	//both parallax of the star as well the
 	//speed of the starships all the while.
-	this.position.x -= this.parallax + SPEEDUP;
+	var level = Objedex.objects.GameLevel[0];
+	this.position.x -= level.getSpeed() - this.parallax;
 	
 	//If the star has moved completely
 	//beyond the edge of the screen..
@@ -65,8 +63,9 @@ Star.prototype.render = function()
 	rendering.x = this.position.x;
 	rendering.y = this.position.y;
 	
-	rendering.width = this.parallax + SPEEDUP;
-	rendering.height = this.parallax;
+	var level = Objedex.objects.GameLevel[0];
+	rendering.width = level.getSpeed() - this.parallax;
+	rendering.height = level.getBaseSpeed() - this.parallax;
 	
 	rendering.fillStyle = this.color;
 	
@@ -90,6 +89,3 @@ Star.getRandomColor = function()
 	
 	return colors[Math.floor(Math.random() * colors.length)];
 }
-
-var SPEEDUP = 0; //todo: refactor this elsewhere!!
-var PARALLAX = 4; //todo: also refactor this elsewhere!!

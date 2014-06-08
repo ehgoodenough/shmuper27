@@ -59,6 +59,9 @@ RebelCruiser.prototype.getHalfHeight = function()
 
 RebelCruiser.prototype.update = function()
 {
+	var level = Objedex.objects.GameLevel[0];
+	this.position.x -= level.getSpeed();
+	
 	this.controls();
 	
 	if(this.position.x <= 0 - this.getHalfWidth())
@@ -95,7 +98,7 @@ RebelCruiser.getControlPattern = function(type)
 	{
 		"do not move": function()
 		{
-			this.position.x -= PARALLAX + SPEEDUP;
+			//nothing happens here!
 		}
 	}
 	
