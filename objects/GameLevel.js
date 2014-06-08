@@ -1,7 +1,5 @@
 function GameLevel(events)
 {
-	Game.Level = this;
-	
 	this.gx = 0;
 	
 	this.speed = 4;
@@ -10,14 +8,13 @@ function GameLevel(events)
 	var AMOUNT_OF_STARS = 100;
 	for(var i = 0; i < AMOUNT_OF_STARS; i++)
 	{
-		//Objedex.stars.add(new Star(i % PARALLAX + 1));
 		new Star(i % this.speed);
 	}
 	
 	this.events = events;
 }
 
-GameLevel.prototype.getSpeed = function()
+GameLevel.prototype.getCurrentSpeed = function()
 {
 	return this.speed + this.speedup;
 }
@@ -29,7 +26,7 @@ GameLevel.prototype.getOriginalSpeed = function()
 
 GameLevel.prototype.update = function()
 {
-	this.gx += this.getSpeed();
+	this.gx += this.getCurrentSpeed();
 	
 	if(this.events.length > 0)
 	{

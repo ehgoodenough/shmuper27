@@ -1,31 +1,9 @@
-var SCALE = 64;
-
-var GameScreen = new function()
+function GameScreen()
 {
 	this.height = 17 * SCALE;
 	this.width = this.height * 1.67;
 	this.width = Math.round(this.width);
 	this.height = Math.round(this.height);
-	
-	this.getWidth = function()
-	{
-		return this.width;
-	}
-	
-	this.getHeight = function()
-	{
-		return this.height;
-	}
-	
-	this.getRandomX = function()
-	{
-		return Math.floor(Math.random() * this.getWidth());
-	}
-	
-	this.getRandomY = function()
-	{
-		return Math.floor(Math.random() * this.getHeight());
-	}
 	
 	$(document).ready(function()
 	{
@@ -35,4 +13,24 @@ var GameScreen = new function()
 		this.dom.appendTo("body");
 	}
 	.bind(this));
+}
+
+GameScreen.prototype.getWidth = function()
+{
+	return this.width;
+}
+
+GameScreen.prototype.getHeight = function()
+{
+	return this.height;
+}
+
+GameScreen.prototype.getRandomX = function()
+{
+	return Math.floor(Math.random() * this.getWidth());
+}
+
+GameScreen.prototype.getRandomY = function()
+{
+	return Math.floor(Math.random() * this.getHeight());
 }

@@ -18,8 +18,8 @@
 
 function Star(parallax)
 {
-	//Add to the objedex!
-	Objedex.Star.add(this);
+	//Register to the objedex.
+	Objedex.Stars.add(this);
 	
 	//Configure the parallax.
 	this.parallax = parallax;
@@ -27,8 +27,8 @@ function Star(parallax)
 	//Randomize the position of
 	//the star across the screen.
 	this.position = new Object();
-	this.position.x = GameScreen.getRandomX();
-	this.position.y = GameScreen.getRandomY();
+	this.position.x = Game.Screen.getRandomX();
+	this.position.y = Game.Screen.getRandomY();
 	
 	//Randomize the color of the star.
 	this.color = Star.getRandomColor();
@@ -38,7 +38,7 @@ Star.prototype.update = function()
 {
 	//Move the star to the left, respecting both the parallax
 	//of the star as well as the speed of the oncoming starship.
-	this.position.x -= Game.Level.getSpeed() - this.parallax;
+	this.position.x -= Game.Level.getCurrentSpeed() - this.parallax;
 	
 	//If the star has moved completely
 	//beyond the edge of the screen..
@@ -46,8 +46,8 @@ Star.prototype.update = function()
 	{
 		//..then rerandomize the attributes of
 		//the star, including position and color.
-		this.position.x = GameScreen.getWidth() + 4;
-		this.position.y = GameScreen.getRandomY();
+		this.position.x = Game.Screen.getWidth() + 4;
+		this.position.y = Game.Screen.getRandomY();
 		this.color = Star.getRandomColor();
 	}
 }
@@ -57,13 +57,10 @@ Star.prototype.render = function()
 	var rendering = new Object();
 	
 	rendering.type = "rectangle";
-	
 	rendering.x = this.position.x;
 	rendering.y = this.position.y;
-	
-	rendering.width = Game.Level.getSpeed() - this.parallax;
+	rendering.width = Game.Level.getCurrentSpeed() - this.parallax;
 	rendering.height = Game.Level.getOriginalSpeed() - this.parallax;
-	
 	rendering.fillStyle = this.color;
 	
 	return rendering;
