@@ -1,6 +1,6 @@
 function GameLevel(events)
 {
-	Objedex.add(this);
+	Game.Level = this;
 	
 	this.gx = 0;
 	

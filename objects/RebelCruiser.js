@@ -1,6 +1,6 @@
 function RebelCruiser(y)
 {
-	Objedex.add(this);
+	Objedex.RebelCruiser.add(this);
 	
 	this.width = SCALE * 3;
 	this.height = SCALE * 2;
@@ -59,14 +59,13 @@ RebelCruiser.prototype.getHalfHeight = function()
 
 RebelCruiser.prototype.update = function()
 {
-	var level = Objedex.objects.GameLevel[0];
-	this.position.x -= level.getSpeed();
+	this.position.x -= Game.Level.getSpeed();
 	
-	this.controls();
+	this.controls(); //todo: syntactically confusing.
 	
 	if(this.position.x <= 0 - this.getHalfWidth())
 	{
-		Objedex.remove(this);
+		Objedex.RebelCruiser.remove(this);
 	}
 }
 

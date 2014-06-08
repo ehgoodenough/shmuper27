@@ -1,6 +1,6 @@
 function Shmuper27(position, color)
 {
-	Objedex.add(this);
+	Objedex.Shmuper27.add(this);
 	
 	this.width = SCALE * 3;
 	this.height = SCALE * 2;
