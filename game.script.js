@@ -14,12 +14,8 @@ Game.Loop = new GameLoop(function()
 	Objedex.RebelCruisers.render();
 	Objedex.Shmuper27s.render();
 });
-Game.Level = new GameLevel([
-	{gx: 100, y: 100},
-	{gx: 300, y: 200},
-	{gx: 600, y: 400},
-	{gx: 800, y: 300}
-]);
+
+Game.Level = new GameLevel(level01);
 
 
 
