@@ -1,4 +1,4 @@
-var level01 =
+var level01 = 
 [
 	{
 		gx: 100,
