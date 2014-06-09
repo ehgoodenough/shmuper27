@@ -24,11 +24,32 @@ canvas
 
 #debug
 {
-	z-index: 1;
-	top: 0.25em;
-	left: 0.25em;
-	position: fixed;
-	
 	color: #EFEFEF;
 	font-family: calibri;
+	
+	top: 0em;
+	left: 0em;
+	right: 0em;
+	bottom: 0em;
+	z-index: 1;
+	margin: auto;
+	position: fixed;
+}
+
+@media(min-aspect-ratio: 16/9)
+{
+	#debug
+	{
+		height: 100vh;
+		width: 177.77vh;
+	}
+}
+
+@media(max-aspect-ratio: 16/9)
+{
+	#debug
+	{
+		width: 100vw;
+		height: 56.25vw;
+	}
 }

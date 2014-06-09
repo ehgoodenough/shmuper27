@@ -1,9 +1,12 @@
 function GameScreen()
 {
-	this.height = 17 * SCALE;
+	/*this.height = 17 * SCALE;
 	this.width = this.height * 1.67;
 	this.width = Math.round(this.width);
-	this.height = Math.round(this.height);
+	this.height = Math.round(this.height);*/
+	
+	this.width = 1920;
+	this.height = 1080;
 	
 	$(document).ready(function()
 	{
