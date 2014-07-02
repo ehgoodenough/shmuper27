@@ -43,7 +43,7 @@ var level01 =
 			}
 		},
 		{
-			at: 200 * 10,
+			at: 200 * 4,
 			type: "win"
 		}
 	]

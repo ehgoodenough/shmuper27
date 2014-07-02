@@ -6,7 +6,6 @@ function RebelCruiser(y)
 	this.height = 133;
 	this.speed = SCALE * 0.0625;
 	
-	
 	this.color = "#EEE";
 	this.model = RebelCruiser.getModel();
 	

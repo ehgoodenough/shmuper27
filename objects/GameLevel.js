@@ -1,6 +1,6 @@
 function GameLevel(level)
 {
-	this.at = 200 * -5;
+	this.at = 200 * -5 * 0;
 	
 	this.speed = 4;
 	this.speedup = 0;
@@ -42,7 +42,8 @@ GameLevel.prototype.update = function()
 			}
 			else if(event.type == "win")
 			{
-				console.log("you won!");
+				this.speedup = 1;
+				Game.State = 2;
 			}
 		}
 	}
