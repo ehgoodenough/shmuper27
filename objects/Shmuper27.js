@@ -2,9 +2,9 @@ function Shmuper27(position, color)
 {
 	Objedex.Shmuper27s.add(this);
 	
-	this.width = SCALE * 3;
-	this.height = SCALE * 2;
-	this.speed = SCALE * 0.125;
+	this.speed = 8;
+	this.width = SCALE * 2;
+	this.height = SCALE + 33;
 	this.position = position || {x: 0, y: 0};
 	
 	this.color = color || "#EEE";

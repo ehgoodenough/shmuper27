@@ -2,15 +2,14 @@ function RebelCruiser(y)
 {
 	Objedex.RebelCruisers.add(this);
 	
-	this.width = 200;
-	this.height = 133;
-	this.speed = SCALE * 0.0625;
+	this.width = SCALE * 2;
+	this.height = SCALE + 33;
 	
 	this.color = "#EEE";
 	this.model = RebelCruiser.getModel();
 	
 	this.position = new Object();
-	this.position.y = y || Game.Screen.getRandomY();
+	this.position.y = y /*|| Game.Screen.getRandomY()*/;
 	this.position.x = Game.Screen.getWidth() + this.getHalfWidth();
 	
 	this.controlPattern = RebelCruiser.getControlPattern("just do nothing");

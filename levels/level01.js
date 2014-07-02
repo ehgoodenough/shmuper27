@@ -3,44 +3,40 @@ var level01 =
 	events:
 	[
 		{
-			at: 200 * 0,
+			at: 0,
 			type: "spawn",
 			data:
 			{
 				model: "RebelCruiser",
-				position: 100
+				position: 1
 			}
 		},
 		{
-			at: 200 * 1,
+			at: 1,
 			type: "spawn",
 			data:
 			{
 				model: "RebelCruiser",
-				position: 200
+				position: 2
 			}
 		},
 		{
-			at: 200 * 2,
+			at: 2,
 			type: "spawn",
 			data:
 			{
 				model: "RebelCruiser",
-				position: 400
+				position: 4
 			}
 		},
 		{
-			at: 200 * 3,
+			at: 3,
 			type: "spawn",
 			data:
 			{
 				model: "RebelCruiser",
-				position: 300
+				position: 5
 			}
-		},
-		{
-			at: 200 * 4,
-			type: "win"
 		}
 	]
 }
