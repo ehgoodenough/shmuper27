@@ -27,24 +27,28 @@ Shmuper27.prototype.moveUp = function()
 {
 	var y = this.position.y - this.speed;
 	if(y > 0) {this.position.y = y;}
+	else {this.position.y = 0;}
 }
 
 Shmuper27.prototype.moveDown = function()
 {
 	var y = this.position.y + this.speed;
 	if(y < Game.Screen.getHeight()) {this.position.y = y;}
+	else {this.position.y = Game.Screen.getHeight();}
 }
 
 Shmuper27.prototype.moveLeft = function()
 {
 	var x = this.position.x - this.speed;
 	if(x > 0) {this.position.x = x;}
+	else {this.position.x = 0;}
 }
 
 Shmuper27.prototype.moveRight = function()
 {
 	var x = this.position.x + this.speed;
 	if(x < Game.Screen.getWidth()) {this.position.x = x;}
+	else {this.position.x = Game.Screen.getWidth();}
 }
 
 Shmuper27.prototype.update = function()
@@ -70,7 +74,10 @@ Shmuper27.prototype.render = function()
 	return rendering;
 }
 
-Shmuper27.getModel = function() {return "SH#27";}
+Shmuper27.getModel = function()
+{
+	return "SH#27";
+}
 
 Shmuper27.getControlScheme = function(objid)
 {
@@ -90,7 +97,7 @@ Shmuper27.getControlScheme = function(objid)
 			"move right": "l",
 			"use weapon": "g"
 		}
-	]
+	];
 	
 	return ControlSchemes[objid];
 }

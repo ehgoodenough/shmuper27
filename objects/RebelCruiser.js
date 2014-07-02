@@ -52,7 +52,10 @@ RebelCruiser.prototype.render = function()
 	return rendering;
 }
 
-RebelCruiser.getModel = function() {return "RC-" + (Math.floor(Math.random() * 90000) + 10000);}
+RebelCruiser.getModel = function()
+{
+	return "RC-" + (Math.floor(Math.random() * 90000) + 10000);
+}
 
 RebelCruiser.getControlPattern = function(type)
 {
