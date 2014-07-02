@@ -2,8 +2,8 @@ function RebelCruiser(y)
 {
 	Objedex.RebelCruisers.add(this);
 	
-	this.width = SCALE * 2;
-	this.height = SCALE + 33;
+	this.width = Game.SCALE * 2;
+	this.height = Game.SCALE + 33;
 	
 	this.color = "#EEE";
 	this.model = RebelCruiser.getModel();

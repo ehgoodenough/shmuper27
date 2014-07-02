@@ -3,8 +3,8 @@ function Shmuper27(position, color)
 	Objedex.Shmuper27s.add(this);
 	
 	this.speed = 8;
-	this.width = SCALE * 2;
-	this.height = SCALE + 33;
+	this.width = Game.SCALE * 2;
+	this.height = Game.SCALE + 33;
 	this.position = position || {x: 0, y: 0};
 	
 	this.color = color || "#EEE";

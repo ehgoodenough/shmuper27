@@ -1,9 +1,7 @@
-var SCALE = 100;
-
 var Game = new Object();
+Game.SCALE = 100;
 Game.Screen = new GameScreen();
-Game.LevelQueue = new GameLevelQueue([level01, level02]);
-Game.Level = Game.LevelQueue.getNextLevel();
+Game.Level = new GameLevel(Levelqueue.getNext());
 Game.Loop = new GameLoop(function()
 {
 	Game.Level.update();

@@ -1,4 +1,4 @@
-var level02 = 
+var level2 = 
 {
 	events:
 	[
@@ -40,3 +40,5 @@ var level02 =
 		}
 	]
 }
+
+Levelqueue.add(level2);
