@@ -1,4 +1,4 @@
-var level01 = 
+var level02 = 
 {
 	events:
 	[
@@ -12,7 +12,7 @@ var level01 =
 			}
 		},
 		{
-			at: 200 * 1,
+			at: 200 * 2,
 			type: "spawn",
 			data:
 			{
@@ -21,16 +21,7 @@ var level01 =
 			}
 		},
 		{
-			at: 200 * 2,
-			type: "spawn",
-			data:
-			{
-				model: "RebelCruiser",
-				position: 400
-			}
-		},
-		{
-			at: 200 * 3,
+			at: 200 * 4,
 			type: "spawn",
 			data:
 			{
@@ -39,8 +30,13 @@ var level01 =
 			}
 		},
 		{
-			at: 200 * 4,
-			type: "win"
+			at: 200 * 6,
+			type: "spawn",
+			data:
+			{
+				model: "RebelCruiser",
+				position: 400
+			}
 		}
 	]
 }

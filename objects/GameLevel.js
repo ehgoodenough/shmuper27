@@ -1,14 +1,9 @@
 function GameLevel(level)
 {
-	this.at = 200 * -5 * 0;
+	this.at = 200 * -5;
 	
 	this.speed = 4;
 	this.speedup = 0;
-	
-	for(var i = 0; i < level.background.stars; i++)
-	{
-		new Star(i % this.speed);
-	}
 	
 	this.events = level.events;
 }
@@ -42,8 +37,7 @@ GameLevel.prototype.update = function()
 			}
 			else if(event.type == "win")
 			{
-				this.speedup = 1;
-				Game.State = 2;
+				Game.Level = new GameLevel(level02);
 			}
 		}
 	}
