@@ -1,7 +1,8 @@
-function GameScreen()
+function GameScreen(width, height, scale)
 {
-	this.width = 1920;
-	this.height = 1080;
+	this.width = width;
+	this.height = height;
+	this.scale = scale;
 	
 	$(document).ready(function()
 	{
@@ -21,6 +22,11 @@ GameScreen.prototype.getWidth = function()
 GameScreen.prototype.getHeight = function()
 {
 	return this.height;
+}
+
+GameScreen.prototype.getScale = function()
+{
+	return this.scale;
 }
 
 GameScreen.prototype.getRandomX = function()

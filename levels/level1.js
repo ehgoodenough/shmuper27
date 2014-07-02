@@ -41,5 +41,5 @@ var level1 =
 	]
 }
 
-Levelqueue.add(level1);
+Levelqueue.add(1, level1);
 

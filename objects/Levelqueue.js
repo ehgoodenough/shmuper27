@@ -1,21 +1,16 @@
-var Queue = function()
+var Levelqueue = new function()
 {
-	this.stuff = [];
+	this.levels = {};
+	this.index = 1;
 }
 
-Queue.prototype.add = function(stuff)
+Levelqueue.add = function(index, level)
 {
-	this.stuff.push(stuff);
+	this.levels[index] = level;
 }
 
-Queue.prototype.hasNext = function()
+Levelqueue.get = function(index)
 {
-	return this.stuff.length > 0;
+	index = index || this.index++;
+	return this.levels[index];
 }
-
-Queue.prototype.getNext = function()
-{
-	return this.stuff.shift();
-}
-
-var Levelqueue = new Queue();

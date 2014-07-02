@@ -1,8 +1,7 @@
 function GameLoop(func)
 {
 	this.func = func;
-	
-	$("canvas").ready(this.reframe.bind(this));
+	this.reframe();
 }
 
 GameLoop.prototype.framerate = new function()

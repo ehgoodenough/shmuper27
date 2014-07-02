@@ -1,6 +1,6 @@
 function GameLevel(level)
 {
-	this.at = Game.SCALE * -2/*-(2 + 19.2)*/;
+	this.at = Game.Screen.getScale() * -2/*-(2 + 19.2)*/;
 	
 	this.speed = 4;
 	this.speedup = 0;
@@ -24,7 +24,7 @@ GameLevel.prototype.update = function()
 	
 	if(this.events.length > 0)
 	{
-		if(this.at >= this.events[0].at * Game.SCALE)
+		if(this.at >= this.events[0].at * Game.Screen.getScale())
 		{
 			var event = this.events.shift();
 			
@@ -32,7 +32,7 @@ GameLevel.prototype.update = function()
 			{
 				if(event.data.model)
 				{
-					new RebelCruiser(event.data.position * Game.SCALE);
+					new RebelCruiser(event.data.position * Game.Screen.getScale());
 				}
 			}
 		}
@@ -41,9 +41,10 @@ GameLevel.prototype.update = function()
 	{
 		console.log("you win!");
 		
-		if(Levelqueue.hasNext())
+		var level = Levelqueue.get();
+		
+		if(level)
 		{
-			var level = Levelqueue.getNext();
 			Game.Level = new GameLevel(level);
 		}
 		else
@@ -52,5 +53,5 @@ GameLevel.prototype.update = function()
 		}
 	}
 	
-	$("#debug").text(this.at / Game.SCALE);
+	$("#debug").text(this.at / Game.Screen.getScale());
 }
