@@ -1,19 +1,50 @@
 var level01 = 
-[
+{
+	background:
 	{
-		gx: 100,
-		y: 100
+		stars: 100
 	},
-	{
-		gx: 300,
-		y: 200
-	},
-	{
-		gx: 600,
-		y: 400
-	},
-	{
-		gx: 800,
-		y: 300
-	}
-]
+	events:
+	[
+		{
+			at: 200 * 0,
+			type: "spawn",
+			data:
+			{
+				model: "RebelCruiser",
+				position: 100
+			}
+		},
+		{
+			at: 200 * 1,
+			type: "spawn",
+			data:
+			{
+				model: "RebelCruiser",
+				position: 200
+			}
+		},
+		{
+			at: 200 * 2,
+			type: "spawn",
+			data:
+			{
+				model: "RebelCruiser",
+				position: 400
+			}
+		},
+		{
+			at: 200 * 3,
+			type: "spawn",
+			data:
+			{
+				model: "RebelCruiser",
+				position: 300
+			}
+		},
+		{
+			at: 200 * 10,
+			type: "win"
+		}
+	]
+}

@@ -1,18 +1,13 @@
 function GameScreen()
 {
-	/*this.height = 17 * SCALE;
-	this.width = this.height * 1.67;
-	this.width = Math.round(this.width);
-	this.height = Math.round(this.height);*/
-	
 	this.width = 1920;
 	this.height = 1080;
 	
 	$(document).ready(function()
 	{
 		this.dom = $("<canvas>");
-		this.dom.attr("width", this.getWidth());
-		this.dom.attr("height", this.getHeight());
+		this.dom.attr("width", this.width);
+		this.dom.attr("height", this.height);
 		this.dom.appendTo("body");
 	}
 	.bind(this));

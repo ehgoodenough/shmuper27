@@ -1,17 +1,16 @@
-function GameLevel(events)
+function GameLevel(level)
 {
-	this.gx = 0;
+	this.at = 200 * -5;
 	
 	this.speed = 4;
 	this.speedup = 0;
 	
-	var AMOUNT_OF_STARS = 100;
-	for(var i = 0; i < AMOUNT_OF_STARS; i++)
+	for(var i = 0; i < level.background.stars; i++)
 	{
 		new Star(i % this.speed);
 	}
 	
-	this.events = events;
+	this.events = level.events;
 }
 
 GameLevel.prototype.getCurrentSpeed = function()
@@ -26,16 +25,27 @@ GameLevel.prototype.getOriginalSpeed = function()
 
 GameLevel.prototype.update = function()
 {
-	this.gx += this.getCurrentSpeed();
+	this.at += this.getCurrentSpeed()
 	
 	if(this.events.length > 0)
 	{
-		if(this.gx >= this.events[0].gx)
+		if(this.at >= this.events[0].at)
 		{
 			var event = this.events.shift();
-			new RebelCruiser(event.y);
+			
+			if(event.type == "spawn")
+			{
+				if(event.data.model)
+				{
+					new RebelCruiser(event.data.position);
+				}
+			}
+			else if(event.type == "win")
+			{
+				console.log("you won!");
+			}
 		}
 	}
 	
-	$("#debug").text(this.gx);
+	$("#debug").text(this.at / 200);
 }
