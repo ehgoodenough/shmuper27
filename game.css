@@ -36,6 +36,21 @@ canvas
 	position: fixed;
 }
 
+#mainscreen
+{
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: auto;
+	width: 480px;
+	height: 255px;
+	position: absolute;
+	
+	border-radius: 4px;
+	background-color: rgba(10, 10, 10, 0.5);
+}
+
 @media(min-aspect-ratio: 16/9)
 {
 	#debug
