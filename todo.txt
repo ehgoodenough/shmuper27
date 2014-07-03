@@ -1,9 +1,5 @@
 LEVEL UPDATE
-	FILE LOAD UPDATE
-	FILE FORMAT UPDATE
 	YOU WON UPDATE
-		HYPERDRIVE UPDATE?
-	GLOBAL COORDS UPDATE
 	EDITOR UPDATE?
 PROJECTILE UPDATE
 	DIRECTIONAL UPDATE
@@ -25,8 +21,8 @@ GAMESTATE UPDATE
 	MULTIPLAYER UPDATE
 
 FRAMERATE UPDATE: To ensure consistent performance across all computers, use the framerate in the gameloop to compensate for different processors by multiplying it against everything.
-REOBJEDEX UPDATE: Try to clean up the syntax a bit to make it easier for other objects to reference other objects, to not restrict all objects to uncheckable parameters, and to allow the gameloop to easily update everything. ObjedexEntries?
 COMMON FUNCTION UPDATE: If objects with different purposes but similar contexts use identical functions, instantiate it elsewhere and share it between the objects. Inheritence?
+SORT THE JS UPDATE: Restructure the file system to establish where "classes" and "utilities" are stored.
 
 GAMELOOP AND GAMESCREEN AND GAMELEVEL?
 Aren't some of them supposed to be singletons?

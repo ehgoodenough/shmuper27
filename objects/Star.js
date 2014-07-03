@@ -40,13 +40,11 @@ Star.prototype.update = function()
 	//of the star as well as the speed of the oncoming starship.
 	this.position.x -= Game.Level.getCurrentSpeed() - this.parallax;
 	
-	//If the star has moved completely
-	//beyond the edge of the screen..
-	if(this.position.x <= -4)
+	//If the star has moved completely beyond the edge of the screen..
+	if(this.position.x <= 0 - Game.Level.getCurrentSpeed())
 	{
-		//..then rerandomize the attributes of
-		//the star, including position and color.
-		this.position.x = Game.Screen.getWidth() + 4;
+		//..then rerandomize the attributes of the star, including position and color.
+		this.position.x = Game.Screen.getWidth() + Math.abs(this.position.x);
 		this.position.y = Game.Screen.getRandomY();
 		this.color = Star.getRandomColor();
 	}

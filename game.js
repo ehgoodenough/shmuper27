@@ -15,8 +15,4 @@ Game.Loop = new GameLoop(function()
 });
 
 new Shmuper27({x: Game.Screen.getWidth() / 4, y: Game.Screen.getHeight() / 2}, "maroon");
-	
-for(var i = 0; i < 100; i++)
-{
-	new Star(i % Game.Level.getOriginalSpeed());
-}
+for(var i = 0; i < 100; i++) {new Star(i % Game.Level.getOriginalSpeed());}
