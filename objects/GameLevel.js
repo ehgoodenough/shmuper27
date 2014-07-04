@@ -5,7 +5,7 @@ function GameLevel(level)
 	this.speed = 4;
 	this.speedup = 0;
 	
-	this.events = level.events;
+	this.events = level.events.slice();
 }
 
 GameLevel.prototype.getCurrentSpeed = function()
@@ -39,7 +39,7 @@ GameLevel.prototype.update = function()
 	}
 	else
 	{
-		//console.log("you win!");
+		console.log("you win!");
 		
 		var level = Levelqueue.get();
 		
@@ -49,7 +49,9 @@ GameLevel.prototype.update = function()
 		}
 		else
 		{
-			//?!
+			Levelqueue.index = 1;
+			//also reset the player?
+			Game.State = new GameState("not playing");
 		}
 	}
 	

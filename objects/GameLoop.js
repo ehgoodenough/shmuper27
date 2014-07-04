@@ -1,25 +1,15 @@
-function GameLoop(func)
+function GameLoop()
 {
-	this.func = func;
 	this.reframe();
 }
 
 GameLoop.prototype.framerate = new function()
 {
-	//The delta is the time between frames, the
-	//sigma is the sum of all deltas, and the
-	//theta is the count of all deltas. We use
-	//this information to analyze the framerate.
-	
 	this.delta = Date.now();
-	this.sigma = Date.now();
-	this.theta = 0;
 	
 	this.preupdate = function()
 	{
 		this.delta = Date.now() - this.delta;
-		this.sigma += this.delta;
-		this.theta++;
 	}
 	
 	this.postupdate = function()
@@ -44,7 +34,10 @@ GameLoop.prototype.frame = function()
 {
 	this.framerate.preupdate();
 	Game.Screen.dom.clearCanvas();
-	if(this.func) {this.func();}
+	if(Game.State)
+	{
+		Game.State.func();
+	}
 	this.framerate.postupdate();
 	
 	this.reframe();
