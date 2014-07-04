@@ -2,7 +2,7 @@ function GameLevel(level)
 {
 	this.at = Game.Screen.getScale() * -2/*-(2 + 19.2)*/;
 	
-	this.speed = 4;
+	this.speed = 5;
 	this.speedup = 0;
 	
 	this.events = level.events.slice();
@@ -39,19 +39,22 @@ GameLevel.prototype.update = function()
 	}
 	else
 	{
-		console.log("you win!");
-		
-		var level = Levelqueue.get();
-		
-		if(level)
+		if(Object.keys(Objedex.RebelCruisers.stuff).length == 0)
 		{
-			Game.Level = new GameLevel(level);
-		}
-		else
-		{
-			Levelqueue.index = 1;
-			//also reset the player?
-			Game.State = new GameState("not playing");
+			console.log("you win!");
+			
+			var level = Levelqueue.get();
+			
+			if(level)
+			{
+				Game.Level = new GameLevel(level);
+			}
+			else
+			{
+				Levelqueue.index = 1;
+				//also reset the player?
+				Game.State = new GameState("not playing");
+			}
 		}
 	}
 	
