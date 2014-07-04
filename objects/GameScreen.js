@@ -1,12 +1,13 @@
 function GameScreen(width, height, scale)
 {
-	this.width = width;
-	this.height = height;
-	this.scale = scale;
+	this.width = width || 1920;
+	this.height = height || 1080;
+	this.scale = scale || 200;
 	
 	$(document).ready(function()
 	{
 		this.dom = $("<canvas>");
+		this.dom.attr("class", "view");
 		this.dom.attr("width", this.width);
 		this.dom.attr("height", this.height);
 		this.dom.appendTo("#game");

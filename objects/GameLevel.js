@@ -39,7 +39,7 @@ GameLevel.prototype.update = function()
 	}
 	else
 	{
-		console.log("you win!");
+		//console.log("you win!");
 		
 		var level = Levelqueue.get();
 		
