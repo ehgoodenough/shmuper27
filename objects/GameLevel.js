@@ -53,5 +53,6 @@ GameLevel.prototype.update = function()
 		}
 	}
 	
-	//$("#debug").text(this.at / Game.Screen.getScale());
+	var at = Math.floor(this.at / Game.Screen.getScale());
+	$("#debug").text(at);
 }

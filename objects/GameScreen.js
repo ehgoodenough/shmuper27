@@ -9,7 +9,7 @@ function GameScreen(width, height, scale)
 		this.dom = $("<canvas>");
 		this.dom.attr("width", this.width);
 		this.dom.attr("height", this.height);
-		this.dom.appendTo("body");
+		this.dom.appendTo("#game");
 	}
 	.bind(this));
 }
