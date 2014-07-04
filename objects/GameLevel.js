@@ -39,7 +39,7 @@ GameLevel.prototype.update = function()
 	}
 	else
 	{
-		if(Object.keys(Objedex.RebelCruisers.stuff).length == 0)
+		if(Objedex.RebelCruisers.size() == 0)
 		{
 			console.log("you win!");
 			
@@ -51,9 +51,7 @@ GameLevel.prototype.update = function()
 			}
 			else
 			{
-				Levelqueue.index = 1;
-				//also reset the player?
-				Game.State = new GameState("not playing");
+				Game.State.load("not playing");
 			}
 		}
 	}

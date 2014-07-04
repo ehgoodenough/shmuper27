@@ -36,7 +36,7 @@ GameLoop.prototype.frame = function()
 	Game.Screen.dom.clearCanvas();
 	if(Game.State)
 	{
-		Game.State.func();
+		Game.State.loop();
 	}
 	this.framerate.postupdate();
 	
