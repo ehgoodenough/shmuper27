@@ -6,9 +6,11 @@ var states = {
 			{
 				Game.Level.update();
 				Objedex.Stars.update();
-				Objedex.Shmuper27s.update();
+				//Objedex.Shmuper27s.update();
 				Objedex.RebelCruisers.update();
 			}
+			
+			Objedex.Shmuper27s.update(); //debug
 			
 			Objedex.Stars.render();
 			Objedex.RebelCruisers.render();

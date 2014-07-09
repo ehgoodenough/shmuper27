@@ -2,28 +2,37 @@ function RebelCruiser(y)
 {
 	Objedex.RebelCruisers.add(this);
 	
-	this.width = Game.Screen.getScale() * 2;
-	this.height = Game.Screen.getScale() * 1.33;
-	
-	this.color = "#EEE";
-	this.model = RebelCruiser.getModel();
+	this.radius = Game.Screen.getScale();
+	//this.width = Game.Screen.getScale() * 2;
+	//this.height = Game.Screen.getScale() * 1.33;
 	
 	this.position = new Object();
 	this.position.y = y /*|| Game.Screen.getRandomY()*/;
-	this.position.x = Game.Screen.getWidth() + this.getHalfWidth();
+	this.position.x = Game.Screen.getWidth() + this.getRadius();
+	
+	this.model = RebelCruiser.getModel();
+	this.shields = RebelCruiser.getShielding();
 	
 	this.controlPattern = RebelCruiser.getControlPattern("just do nothing");
 }
 
-RebelCruiser.prototype.getUpPosition = function() {return this.position.y - (this.height / 2);}
-RebelCruiser.prototype.getDownPosition = function() {return this.position.y + (this.height / 2);}
-RebelCruiser.prototype.getLeftPosition = function() {return this.position.x - (this.width / 2);}
-RebelCruiser.prototype.getRightPosition = function() {return this.position.x + (this.width / 2);}
+RebelCruiser.prototype.getRadius = function() {return this.radius;}
+RebelCruiser.prototype.getDiameter = function() {return this.radius * 2;}
 
-RebelCruiser.prototype.getWidth = function() {return this.width;}
-RebelCruiser.prototype.getHeight = function() {return this.height;}
-RebelCruiser.prototype.getHalfWidth = function() {return this.width / 2;}
-RebelCruiser.prototype.getHalfHeight = function() {return this.height / 2;}
+RebelCruiser.prototype.damageShields = function(damage)
+{
+	this.shields -= damage;
+	
+	if(this.shields <= 0)
+	{
+		this.explode();
+	}
+}
+
+RebelCruiser.prototype.explode = function()
+{
+	Objedex.RebelCruisers.remove(this);
+}
 
 RebelCruiser.prototype.update = function()
 {
@@ -31,7 +40,7 @@ RebelCruiser.prototype.update = function()
 	
 	this.controlPattern();
 	
-	if(this.position.x <= 0 - this.getHalfWidth())
+	if(this.position.x <= 0 - this.radius)
 	{
 		Objedex.RebelCruisers.remove(this);
 	}
@@ -41,12 +50,11 @@ RebelCruiser.prototype.render = function()
 {
 	var rendering = new Object();
 	
-	rendering.type = "rectangle";
+	rendering.type = "arc";
 	rendering.x = this.position.x;
 	rendering.y = this.position.y;
-	rendering.width = this.width;
-	rendering.height = this.height;
-	rendering.fillStyle = this.color;
+	rendering.radius = this.radius;
+	rendering.fillStyle = "gray";
 	
 	return rendering;
 }
@@ -54,6 +62,11 @@ RebelCruiser.prototype.render = function()
 RebelCruiser.getModel = function()
 {
 	return "RC-" + (Math.floor(Math.random() * 90000) + 10000);
+}
+
+RebelCruiser.getShielding = function()
+{
+	return 50;
 }
 
 RebelCruiser.getControlPattern = function(type)

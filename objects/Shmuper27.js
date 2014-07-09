@@ -6,24 +6,17 @@ function Shmuper27()
 	this.position.x = Game.Screen.getWidth() / 4;
 	this.position.y = Game.Screen.getHeight() / 2;
 	
-	this.width = Game.Screen.getScale() * 2;
-	this.height = Game.Screen.getScale() * 1.33;
+	this.radius = Game.Screen.getScale();
 	this.speed = Game.Screen.getScale() / 10;
 	
 	this.model = Shmuper27.getModel();
+	this.shields = Shmuper27.getShielding();
 	
 	this.controlScheme = Shmuper27.getControlScheme(this.objid);
 }
 
-Shmuper27.prototype.getUpPosition = function() {return this.position.y - (this.height / 2);}
-Shmuper27.prototype.getDownPosition = function() {return this.position.y + (this.height / 2);}
-Shmuper27.prototype.getLeftPosition = function() {return this.position.x - (this.width / 2);}
-Shmuper27.prototype.getRightPosition = function() {return this.position.x + (this.width / 2);}
-
-Shmuper27.prototype.getWidth = function() {return this.width;}
-Shmuper27.prototype.getHeight = function() {return this.height;}
-Shmuper27.prototype.getHalfWidth = function() {return this.width / 2;}
-Shmuper27.prototype.getHalfHeight = function() {return this.height / 2;}
+Shmuper27.prototype.getRadius = function() {return this.radius;}
+Shmuper27.prototype.getDiameter = function() {return this.radius * 2;}
 
 Shmuper27.prototype.moveUp = function()
 {
@@ -53,6 +46,33 @@ Shmuper27.prototype.moveRight = function()
 	else {this.position.x = Game.Screen.getWidth();}
 }
 
+Shmuper27.prototype.damageShields = function(damage)
+{
+	this.shields -= damage;
+	
+	if(this.shields <= 0)
+	{
+		this.explode();
+	}
+}
+
+Shmuper27.prototype.explode = function()
+{
+	Game.State.load("not playing");
+}
+
+Shmuper27.prototype.isOverlapping = function(that)
+{
+	var x = this.position.x - that.position.x;
+	var y = this.position.y - that.position.y;
+	var currentDistance = Math.sqrt(x * x + y * y)
+	
+	var collisionDistance = this.radius + that.radius;
+	collisionDistance -= Game.Screen.getScale() / 8;
+	
+	return currentDistance <= collisionDistance;
+}
+
 Shmuper27.prototype.update = function()
 {
 	if(key.getState(this.controlScheme["move right"])) {this.moveRight();}
@@ -60,18 +80,38 @@ Shmuper27.prototype.update = function()
 	
 	if(key.getState(this.controlScheme["move down"])) {this.moveDown();}
 	else if(key.getState(this.controlScheme["move up"])) {this.moveUp();}
+	
+	Objedex.RebelCruisers.foreach(function(that)
+	{
+		if(this.isOverlapping(that))
+		{
+			this.damageShields(5);
+			that.damageShields(5);
+		}
+	}
+	.bind(this));
+	
+	/*if(collision)
+	{
+		this.color = "green"
+	}
+	else
+	{
+		this.color = undefined;
+	}*/
+	
+	$("#debug").text(this.shields + "%");
 }
 
 Shmuper27.prototype.render = function()
 {
 	var rendering = new Object();
 	
-	rendering.type = "rectangle";
+	rendering.type = "arc";
 	rendering.x = this.position.x;
 	rendering.y = this.position.y;
-	rendering.width = this.width;
-	rendering.height = this.height;
-	rendering.fillStyle = "maroon";
+	rendering.radius = this.radius;
+	rendering.fillStyle = this.color || "maroon";
 	
 	return rendering;
 }
@@ -79,6 +119,11 @@ Shmuper27.prototype.render = function()
 Shmuper27.getModel = function()
 {
 	return "SH#27";
+}
+
+Shmuper27.getShielding = function()
+{
+	return 100;
 }
 
 Shmuper27.getControlScheme = function(objid)

@@ -52,7 +52,6 @@ ObjedexEntry.prototype.render = function(stuff)
 
 ObjedexEntry.prototype.reset = function()
 {
-	console.log("RESET");
 	this.objid = 0;
 	this.stuff = {};
 }
@@ -62,6 +61,11 @@ ObjedexEntry.prototype.size = function()
 	return Object.keys(this.stuff).length;
 }
 
+ObjedexEntry.prototype.foreach = function(func)
+{
+	for(var s in this.stuff)
+		func(this.stuff[s]);
+}
 
 
 var Objedex = new function()

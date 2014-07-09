@@ -12,7 +12,7 @@ var level1 =
 			}
 		},
 		{
-			at: 1,
+			at: 5,
 			type: "spawn",
 			data:
 			{
@@ -21,7 +21,7 @@ var level1 =
 			}
 		},
 		{
-			at: 2,
+			at: 10,
 			type: "spawn",
 			data:
 			{
@@ -30,7 +30,7 @@ var level1 =
 			}
 		},
 		{
-			at: 3,
+			at: 15,
 			type: "spawn",
 			data:
 			{
