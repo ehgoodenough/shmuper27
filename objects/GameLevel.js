@@ -2,7 +2,7 @@ function GameLevel(level)
 {
 	this.at = Game.Screen.getScale() * -2/*-(2 + 19.2)*/;
 	
-	this.speed = 5;
+	this.speed = 3;
 	this.speedup = 0;
 	
 	this.events = level.events.slice();

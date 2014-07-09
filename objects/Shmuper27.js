@@ -1,13 +1,15 @@
-function Shmuper27(position, color)
+function Shmuper27()
 {
 	Objedex.Shmuper27s.add(this);
 	
-	this.speed = 8;
-	this.width = Game.Screen.getScale() * 2;
-	this.height = Game.Screen.getScale() + 33;
-	this.position = position || {x: 0, y: 0};
+	this.position = new Object();
+	this.position.x = Game.Screen.getWidth() / 4;
+	this.position.y = Game.Screen.getHeight() / 2;
 	
-	this.color = color || "#EEE";
+	this.width = Game.Screen.getScale() * 2;
+	this.height = Game.Screen.getScale() * 1.33;
+	this.speed = Game.Screen.getScale() / 10;
+	
 	this.model = Shmuper27.getModel();
 	
 	this.controlScheme = Shmuper27.getControlScheme(this.objid);
@@ -69,7 +71,7 @@ Shmuper27.prototype.render = function()
 	rendering.y = this.position.y;
 	rendering.width = this.width;
 	rendering.height = this.height;
-	rendering.fillStyle = this.color;
+	rendering.fillStyle = "maroon";
 	
 	return rendering;
 }

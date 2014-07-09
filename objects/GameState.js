@@ -24,7 +24,7 @@ var states = {
 		},
 		start: function()
 		{
-			new Shmuper27({x: Game.Screen.getWidth() / 4, y: Game.Screen.getHeight() / 2}, "maroon");
+			new Shmuper27();
 		},
 		end: function()
 		{
