@@ -21,6 +21,17 @@ body
 	background-color: #0C0C0C;
 }
 
+a
+{
+	color: inherit;
+}
+
+ul
+{
+	padding: 0px;
+	list-style-type: none;
+}
+
 #game
 {
 	top: 0em;
@@ -43,10 +54,44 @@ body
 	background-color: #222;
 }
 
-#game > #title.view
+#game > #titlescreen.view
 {
-	z-index: 1;
+	z-index: 4;
+	
+	top: 0em;
+	left: 0em;
+	right: 0em;
+	bottom: 0em;
+	margin: auto;
+	width: 480px;
+	height: 270px;
+	padding: 2rem;
+	position: absolute;
+	box-sizing: border-box;
+	
 	text-align: center;
+	border-radius: 4px;
+	background-color: rgba(231, 76, 60, 0.85);
+}
+
+#game > #titlescreen.view > h1
+{
+	font-size: 2rem;
+}
+
+#game > #titlescreen.view > ul
+{
+	margin-top: 1rem;
+}
+
+#game > #titlescreen.view > ul > li
+{
+	margin: 0.5rem;
+}
+
+#game > #titlescreen.view > ul > li::before
+{
+	content: "> ";
 }
 
 #game > #overhead.view

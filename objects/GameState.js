@@ -39,6 +39,7 @@ var states = {
 	"not playing": {
 		loop: function()
 		{
+			//Objedex.Stars.update();
 			Objedex.Stars.render();
 			
 			while(key.hasEvent())
@@ -51,11 +52,11 @@ var states = {
 		},
 		start: function()
 		{
-			$("#title.view").show();
+			$("#titlescreen.view").show();
 		},
 		end: function()
 		{
-			$("#title.view").hide();
+			$("#titlescreen.view").hide();
 		}
 	}
 }
