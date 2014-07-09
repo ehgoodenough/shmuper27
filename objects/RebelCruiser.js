@@ -2,13 +2,13 @@ function RebelCruiser(y)
 {
 	Objedex.RebelCruisers.add(this);
 	
-	this.radius = Game.Screen.getScale();
-	//this.width = Game.Screen.getScale() * 2;
-	//this.height = Game.Screen.getScale() * 1.33;
+	this.radius = Game.screen.getScale();
+	//this.width = Game.screen.getScale() * 2;
+	//this.height = Game.screen.getScale() * 1.33;
 	
 	this.position = new Object();
-	this.position.y = y /*|| Game.Screen.getRandomY()*/;
-	this.position.x = Game.Screen.getWidth() + this.getRadius();
+	this.position.y = y /*|| Game.screen.getRandomY()*/;
+	this.position.x = Game.screen.getWidth() + this.getRadius();
 	
 	this.model = RebelCruiser.getModel();
 	this.shields = RebelCruiser.getShielding();
@@ -36,7 +36,7 @@ RebelCruiser.prototype.explode = function()
 
 RebelCruiser.prototype.update = function()
 {
-	this.position.x -= Game.Level.getCurrentSpeed();
+	this.position.x -= Game.level.getCurrentSpeed();
 	
 	this.controlPattern();
 	

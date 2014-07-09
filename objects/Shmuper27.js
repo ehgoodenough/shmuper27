@@ -3,11 +3,11 @@ function Shmuper27()
 	Objedex.Shmuper27s.add(this);
 	
 	this.position = new Object();
-	this.position.x = Game.Screen.getWidth() / 4;
-	this.position.y = Game.Screen.getHeight() / 2;
+	this.position.x = Game.screen.getWidth() / 4;
+	this.position.y = Game.screen.getHeight() / 2;
 	
-	this.radius = Game.Screen.getScale();
-	this.speed = Game.Screen.getScale() / 10;
+	this.radius = Game.screen.getScale();
+	this.speed = Game.screen.getScale() / 10;
 	
 	this.model = Shmuper27.getModel();
 	this.shields = Shmuper27.getShielding();
@@ -28,8 +28,8 @@ Shmuper27.prototype.moveUp = function()
 Shmuper27.prototype.moveDown = function()
 {
 	var y = this.position.y + this.speed;
-	if(y < Game.Screen.getHeight()) {this.position.y = y;}
-	else {this.position.y = Game.Screen.getHeight();}
+	if(y < Game.screen.getHeight()) {this.position.y = y;}
+	else {this.position.y = Game.screen.getHeight();}
 }
 
 Shmuper27.prototype.moveLeft = function()
@@ -42,8 +42,8 @@ Shmuper27.prototype.moveLeft = function()
 Shmuper27.prototype.moveRight = function()
 {
 	var x = this.position.x + this.speed;
-	if(x < Game.Screen.getWidth()) {this.position.x = x;}
-	else {this.position.x = Game.Screen.getWidth();}
+	if(x < Game.screen.getWidth()) {this.position.x = x;}
+	else {this.position.x = Game.screen.getWidth();}
 }
 
 Shmuper27.prototype.damageShields = function(damage)
@@ -58,7 +58,7 @@ Shmuper27.prototype.damageShields = function(damage)
 
 Shmuper27.prototype.explode = function()
 {
-	Game.State.load("not playing");
+	Game.state.load("not playing");
 }
 
 Shmuper27.prototype.isOverlapping = function(that)
@@ -68,7 +68,7 @@ Shmuper27.prototype.isOverlapping = function(that)
 	var currentDistance = Math.sqrt(x * x + y * y)
 	
 	var collisionDistance = this.radius + that.radius;
-	collisionDistance -= Game.Screen.getScale() / 8;
+	collisionDistance -= Game.screen.getScale() / 8;
 	
 	return currentDistance <= collisionDistance;
 }
@@ -87,18 +87,20 @@ Shmuper27.prototype.update = function()
 		{
 			this.damageShields(5);
 			that.damageShields(5);
+			
+			if(this.position.y < that.position.y)
+			{
+				this.position.y -= this.speed;
+				that.position.y += this.speed;
+			}
+			else
+			{
+				this.position.y += this.speed;
+				that.position.y -= this.speed;
+			}
 		}
 	}
 	.bind(this));
-	
-	/*if(collision)
-	{
-		this.color = "green"
-	}
-	else
-	{
-		this.color = undefined;
-	}*/
 	
 	$("#debug").text(this.shields + "%");
 }
@@ -123,6 +125,7 @@ Shmuper27.getModel = function()
 
 Shmuper27.getShielding = function()
 {
+	return 1000; //debug
 	return 100;
 }
 

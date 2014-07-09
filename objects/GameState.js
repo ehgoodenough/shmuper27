@@ -4,13 +4,11 @@ var states = {
 		{
 			if(!this.paused)
 			{
-				Game.Level.update();
+				Game.level.update();
 				Objedex.Stars.update();
-				//Objedex.Shmuper27s.update();
+				Objedex.Shmuper27s.update();
 				Objedex.RebelCruisers.update();
 			}
-			
-			Objedex.Shmuper27s.update(); //debug
 			
 			Objedex.Stars.render();
 			Objedex.RebelCruisers.render();
@@ -18,7 +16,7 @@ var states = {
 			
 			while(key.hasEvent())
 			{
-				if(key.getEvent() == 90)
+				if(key.getEvent() == 32)
 				{
 					this.paused = !this.paused;
 				}
@@ -43,7 +41,7 @@ var states = {
 			{
 				if(key.getEvent() == 90)
 				{
-					Game.State.load("playing");
+					Game.state.load("playing");
 				}
 			}
 		},

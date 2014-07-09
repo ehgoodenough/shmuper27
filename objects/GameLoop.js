@@ -33,10 +33,10 @@ GameLoop.prototype.framerate = new function()
 GameLoop.prototype.frame = function()
 {
 	this.framerate.preupdate();
-	Game.Screen.dom.clearCanvas();
-	if(Game.State)
+	Game.screen.dom.clearCanvas();
+	if(Game.state)
 	{
-		Game.State.loop();
+		Game.state.loop();
 	}
 	this.framerate.postupdate();
 	

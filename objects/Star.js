@@ -27,8 +27,8 @@ function Star(parallax)
 	//Randomize the position of
 	//the star across the screen.
 	this.position = new Object();
-	this.position.x = Game.Screen.getRandomX();
-	this.position.y = Game.Screen.getRandomY();
+	this.position.x = Game.screen.getRandomX();
+	this.position.y = Game.screen.getRandomY();
 	
 	//Randomize the color of the star.
 	this.color = Star.getRandomColor();
@@ -38,14 +38,14 @@ Star.prototype.update = function()
 {
 	//Move the star to the left, respecting both the parallax
 	//of the star as well as the speed of the oncoming starship.
-	this.position.x -= Game.Level.getCurrentSpeed() - this.parallax;
+	this.position.x -= Game.level.getCurrentSpeed() - this.parallax;
 	
 	//If the star has moved completely beyond the edge of the screen..
-	if(this.position.x <= 0 - Game.Level.getCurrentSpeed())
+	if(this.position.x <= 0 - Game.level.getCurrentSpeed())
 	{
 		//..then rerandomize the attributes of the star, including position and color.
-		this.position.x = Game.Screen.getWidth() + Math.abs(this.position.x);
-		this.position.y = Game.Screen.getRandomY();
+		this.position.x = Game.screen.getWidth() + Math.abs(this.position.x);
+		this.position.y = Game.screen.getRandomY();
 		this.color = Star.getRandomColor();
 	}
 }
@@ -57,8 +57,8 @@ Star.prototype.render = function()
 	rendering.type = "rectangle";
 	rendering.x = this.position.x;
 	rendering.y = this.position.y;
-	rendering.width = Game.Level.getCurrentSpeed() - this.parallax;
-	rendering.height = Game.Level.getOriginalSpeed() - this.parallax;
+	rendering.width = Game.level.getCurrentSpeed() - this.parallax;
+	rendering.height = Game.level.getOriginalSpeed() - this.parallax;
 	rendering.fillStyle = this.color;
 	
 	return rendering;
