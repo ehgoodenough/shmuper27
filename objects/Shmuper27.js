@@ -81,6 +81,11 @@ Shmuper27.prototype.update = function()
 	if(key.getState(this.controlScheme["move down"])) {this.moveDown();}
 	else if(key.getState(this.controlScheme["move up"])) {this.moveUp();}
 	
+	if(key.getState(this.controlScheme["use weapon"]))
+	{
+		console.log("pew pew pew!");
+	}
+	
 	Objedex.RebelCruisers.foreach(function(that)
 	{
 		if(this.isOverlapping(that))

@@ -1,30 +1,32 @@
-LEVEL UPDATE
-	YOU WON UPDATE
-	EDITOR UPDATE?
 PROJECTILE UPDATE
-	DIRECTIONAL UPDATE
-	AFFILIATION UPDATE
 	COLLISION UPDATE
+	AFFILIATION UPDATE
+	DIRECTIONAL UPDATE
 	EXPLOSION UPDATE
 	GAME OVER UPDATE
 	OVERHEAD GUI UPDATE
+GAMESTATE UPDATE
+	BETTER GAMESTATE UPDATE
+	TITLESCREEN UPDATE
+	CONTROL MENU UPDATE
+	MULTIPLAYER UPDATE
+VIEWS/LAYERS UPDATE
+BOSS BATTLE UPDATE
 MEDIA UPDATE
 	IMAGE UPDATE
 		SPRITESHEET UPDATE
 		ANIMATION UPDATE?
 	SOUND UPDATE
 		MUSIC UPDATE?
-BOSS BATTLE UPDATE
-GAMESTATE UPDATE
-	TITLESCREEN UPDATE
-	CONTROL MENU UPDATE
-	MULTIPLAYER UPDATE
+LEVEL UPDATE
+	EDITOR UPDATE?
 
 FRAMERATE UPDATE: To ensure consistent performance across all computers, use the framerate in the gameloop to compensate for different processors by multiplying it against everything.
 COMMON FUNCTION UPDATE: If objects with different purposes but similar contexts use identical functions, instantiate it elsewhere and share it between the objects. Inheritence?
 SORT THE JS UPDATE: Restructure the file system to establish where "classes" and "utilities" are stored.
 
-GAMELOOP AND GAMESCREEN AND GAMELEVEL?
+THE GAME UPDATE:
+gameloop? gamestate? gamelevel? gamescreen?!
 Aren't some of them supposed to be singletons?
 Why instantiate subchildren objects? Reimplement it!
 How to load new levels? By creating another object?
