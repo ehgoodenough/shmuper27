@@ -27,6 +27,8 @@ var states = {
 		start: function()
 		{
 			new Shmuper27();
+			
+			$("#overhead-interface").show();
 		},
 		end: function()
 		{
@@ -34,6 +36,8 @@ var states = {
 			Objedex.Shmuper27s.reset();
 			Objedex.Projectiles.reset();
 			Objedex.RebelCruisers.reset();
+			
+			$("#overhead-interface").fadeOut();
 		}
 	},
 	"not playing": {
@@ -52,11 +56,11 @@ var states = {
 		},
 		start: function()
 		{
-			$("#titlescreen.view").show();
+			$("#title-screen").fadeIn();
 		},
 		end: function()
 		{
-			$("#titlescreen.view").hide();
+			$("#title-screen").hide();
 		}
 	}
 }

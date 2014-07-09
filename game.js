@@ -8,3 +8,19 @@ for(var i = 0; i < 100; i++)
 {
 	new Star(i % Game.level.getOriginalSpeed());
 }
+
+$("#title-screen").ready(function()
+{
+	$(this).hide();
+	
+	$(this).find("a[href=singleplayer]").click(function(event)
+	{
+		event.preventDefault();
+		Game.state.load("playing");
+	});
+});
+
+$("#overhead-interface").ready(function()
+{
+	$(this).css("display", "none");
+});

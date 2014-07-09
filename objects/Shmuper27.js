@@ -132,7 +132,7 @@ Shmuper27.prototype.update = function()
 	}
 	.bind(this));
 	
-	$("#overhead > #shielding").text(this.getShieldingPercentage());
+	$("#overhead-interface > #shielding > #value").text(this.getShieldingPercentage());
 }
 
 Shmuper27.prototype.render = function()

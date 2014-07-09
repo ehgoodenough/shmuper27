@@ -27,38 +27,46 @@
 		<link href="game.css" rel="stylesheet" type="text/css"/>
 		
 		<div id="game">
-			<div id="titlescreen" class="view">
+			<div id="title-screen" class="view">
 				<h1>Shmuper27</h1>
 				<ul>
 					<li>
-						<a href="#singleplayer-campaign">
+						<a href="singleplayer">
+							<i class="fa fa-user"></i>
 							<span>Singleplayer Campaign</span>
 						</a>
 					</li>
 					<li>
-						<a href="#multiplayer-campaign">
+						<a>
+							<i class="fa fa-users"></i>
 							<span>Multiplayer Campaign</span>
 						</a>
 					</li>
 					<li>
-						<a href="#highscore-list">
+						<a>
+							<i class="fa fa-list"></i>
 							<span>Highscore List</span>
 						</a>
 					</li>
 					<li>
-						<a href="#configuration-menu">
+						<a>
+							<i class="fa fa-cogs"></i>
 							<span>Configuration Menu</span>
 						</a>
 					</li>
 					<li>
 						<a href="https://github.com/arcym/shmuper27" target="_blank">
+							<i class="fa fa-github-alt"></i>
 							<span>Github Repository</span>
 						</a>
 					</li>
 				</ul>
 			</div>
-			<div id="overhead" class="view">
-				<div id="shielding"></div>
+			<div id="overhead-interface" class="view" style="display: none;">
+				<div id="shielding">
+					<i class="fa fa-heart"></i>
+					<span id="value"></span>
+				</div>
 			</div>
 		</div>
 	</body>

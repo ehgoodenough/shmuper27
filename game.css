@@ -1,4 +1,5 @@
 @import url("./fonts/goldfish.css");
+@import url("./fonts/font-awesome.css");
 
 *
 {
@@ -24,6 +25,12 @@ body
 a
 {
 	color: inherit;
+	text-decoration: none;
+}
+
+a[href] > span
+{
+	text-decoration: underline;
 }
 
 ul
@@ -54,7 +61,7 @@ ul
 	background-color: #222;
 }
 
-#game > #titlescreen.view
+#game > #title-screen.view
 {
 	z-index: 4;
 	
@@ -71,35 +78,30 @@ ul
 	
 	text-align: center;
 	border-radius: 4px;
-	background-color: rgba(231, 76, 60, 0.85);
+	/*background-color: rgba(231, 76, 60, 0.85);*/
 }
 
-#game > #titlescreen.view > h1
+#game > #title-screen.view > h1
 {
 	font-size: 2rem;
 }
 
-#game > #titlescreen.view > ul
+#game > #title-screen.view > ul
 {
 	margin-top: 1rem;
 }
 
-#game > #titlescreen.view > ul > li
+#game > #title-screen.view > ul > li
 {
 	margin: 0.5rem;
 }
 
-#game > #titlescreen.view > ul > li::before
-{
-	content: "> ";
-}
-
-#game > #overhead.view
+#game > #overhead-interface.view
 {
 	z-index: 1;
 }
 
-#game > #overhead.view > #shielding
+#game > #overhead-interface.view > #shielding
 {
 	top: 1rem;
 	left: 1rem;
