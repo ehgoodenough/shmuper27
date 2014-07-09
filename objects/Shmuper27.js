@@ -85,13 +85,14 @@ Shmuper27.prototype.update = function()
 	
 	if(key.getState(this.controlScheme["use weapon"]))
 	{
-		console.log("pew pew pew!");
-		
 		if(this.cooldown <= 0)
 		{
 			this.cooldown = 8;
-			var direction = degress2radians(90);
-			new Projectile(this.position, direction, this.speed * 2);
+			
+			var speed = this.speed * 2;
+			var affiliation = "Shmuper27s";
+			var direction = degrees2radians(90);
+			new Projectile(this.position, direction, speed, affiliation);
 		}
 	}
 	

@@ -13,7 +13,9 @@ function RebelCruiser(y)
 	this.model = RebelCruiser.getModel();
 	this.shields = RebelCruiser.getShielding();
 	
-	this.controlPattern = RebelCruiser.getControlPattern("just do nothing");
+	this.cooldown = 0;
+	
+	this.controlPattern = RebelCruiser.getControlPattern("just do nothing but shoot");
 }
 
 RebelCruiser.prototype.getRadius = function() {return this.radius;}
@@ -32,6 +34,18 @@ RebelCruiser.prototype.damageShields = function(damage)
 RebelCruiser.prototype.explode = function()
 {
 	Objedex.RebelCruisers.remove(this);
+}
+
+RebelCruiser.prototype.isOverlapping = function(that)
+{
+	var x = this.position.x - that.position.x;
+	var y = this.position.y - that.position.y;
+	var currentDistance = Math.sqrt(x * x + y * y)
+	
+	var collisionDistance = this.radius + that.radius;
+	collisionDistance -= Game.screen.getScale() / 8;
+	
+	return currentDistance <= collisionDistance;
 }
 
 RebelCruiser.prototype.update = function()
@@ -76,6 +90,22 @@ RebelCruiser.getControlPattern = function(type)
 		"just do nothing": function()
 		{
 			//nothing!!
+		},
+		"just do nothing but shoot": function()
+		{
+			if(this.cooldown <= 0)
+			{
+				var speed = 10;
+				var affiliation = "RebelCruisers";
+				var direction = degrees2radians(270);
+				new Projectile(this.position, direction, speed, affiliation);
+				
+				this.cooldown = 50;
+			}
+			else
+			{
+				this.cooldown--;
+			}
 		}
 	}
 	

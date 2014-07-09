@@ -1,4 +1,4 @@
-function Projectile(position, direction, speed)
+function Projectile(position, direction, speed, affiliation)
 {
 	Objedex.Projectiles.add(this);
 	
@@ -6,11 +6,24 @@ function Projectile(position, direction, speed)
 	this.position.x = position.x;
 	this.position.y = position.y;
 	
-	this.direction = direction;
 	this.speed = speed;
+	this.direction = direction;
+	this.affiliation = affiliation;
+	this.radius = Game.screen.getScale() / 5;
 	
 	//this.radius?
-	//this.affiliation?
+}
+
+Projectile.prototype.isOverlapping = function(that)
+{
+	var x = this.position.x - that.position.x;
+	var y = this.position.y - that.position.y;
+	var currentDistance = Math.sqrt(x * x + y * y)
+	
+	var collisionDistance = this.radius + that.radius;
+	collisionDistance -= Game.screen.getScale() / 8;
+	
+	return currentDistance <= collisionDistance;
 }
 
 Projectile.prototype.update = function()
@@ -18,11 +31,27 @@ Projectile.prototype.update = function()
 	this.position.x += this.speed * Math.sin(this.direction);
 	this.position.y += this.speed * Math.cos(this.direction);
 	
-	if(this.position.x > Game.screen.getWidth())
+	if(this.position.x < 0 - this.radius
+	|| this.position.y < 0 - this.radius
+	|| this.position.x > Game.screen.getWidth() + this.radius
+	|| this.position.y > Game.screen.getHeight() + this.radius)
 	{
-		console.log("so long pard'ner");
 		Objedex.Projectiles.remove(this);
 	}
+	
+	var opposition = Objedex.RebelCruisers;
+	if(this.affiliation == "RebelCruisers")
+	{opposition = Objedex.Shmuper27s;}
+	
+	opposition.foreach(function(that)
+	{
+		if(this.isOverlapping(that))
+		{
+			that.damageShields(10);
+			Objedex.Projectiles.remove(this);
+		}
+	}
+	.bind(this));
 }
 
 Projectile.prototype.render = function()
@@ -32,7 +61,7 @@ Projectile.prototype.render = function()
 	rendering.type = "arc";
 	rendering.x = this.position.x;
 	rendering.y = this.position.y;
-	rendering.radius = Game.screen.getScale() / 5;
+	rendering.radius = this.radius;
 	rendering.fillStyle = "orange";
 	
 	return rendering;

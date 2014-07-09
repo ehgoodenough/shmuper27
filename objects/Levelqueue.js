@@ -17,5 +17,5 @@ Levelqueue.get = function(index)
 
 Levelqueue.reset = function()
 {
-	this.index = 0;
+	this.index = 1;
 }
