@@ -35,18 +35,29 @@ body
 {
 	width: 100%;
 	height: 100%;
+	position: absolute;
 }
 
-canvas
+#game > canvas.view
 {
 	background-color: #222;
 }
 
-#debug
+#game > #title.view
+{
+	z-index: 1;
+	text-align: center;
+}
+
+#game > #overhead.view
+{
+	z-index: 1;
+}
+
+#game > #overhead.view > #shielding
 {
 	top: 1rem;
 	left: 1rem;
-	z-index: 100;
 	position: absolute;
 }
 

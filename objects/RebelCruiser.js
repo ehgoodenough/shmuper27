@@ -11,9 +11,9 @@ function RebelCruiser(y)
 	this.position.x = Game.screen.getWidth() + this.getRadius();
 	
 	this.model = RebelCruiser.getModel();
-	this.shields = RebelCruiser.getShielding();
+	this.shielding = RebelCruiser.getShielding();
 	
-	this.cooldown = 0;
+	this.cooldown = 100;
 	
 	this.controlPattern = RebelCruiser.getControlPattern("just do nothing but shoot");
 }
@@ -21,11 +21,11 @@ function RebelCruiser(y)
 RebelCruiser.prototype.getRadius = function() {return this.radius;}
 RebelCruiser.prototype.getDiameter = function() {return this.radius * 2;}
 
-RebelCruiser.prototype.damageShields = function(damage)
+RebelCruiser.prototype.damageShielding = function(damage)
 {
-	this.shields -= damage;
+	this.shielding -= damage;
 	
-	if(this.shields <= 0)
+	if(this.shielding <= 0)
 	{
 		this.explode();
 	}

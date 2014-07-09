@@ -1,4 +1,4 @@
-function Projectile(position, direction, speed, affiliation)
+function Projectile(position, direction, speed, affiliation, radius)
 {
 	Objedex.Projectiles.add(this);
 	
@@ -7,23 +7,37 @@ function Projectile(position, direction, speed, affiliation)
 	this.position.y = position.y;
 	
 	this.speed = speed;
+	this.shielding = 10;
 	this.direction = direction;
 	this.affiliation = affiliation;
-	this.radius = Game.screen.getScale() / 5;
-	
-	//this.radius?
+	this.radius = radius || Game.screen.getScale() / 5;
 }
 
 Projectile.prototype.isOverlapping = function(that)
 {
 	var x = this.position.x - that.position.x;
 	var y = this.position.y - that.position.y;
-	var currentDistance = Math.sqrt(x * x + y * y)
+	var currentDistance = Math.sqrt(x * x + y * y);
 	
 	var collisionDistance = this.radius + that.radius;
 	collisionDistance -= Game.screen.getScale() / 8;
 	
 	return currentDistance <= collisionDistance;
+}
+
+Projectile.prototype.damageShielding = function(damage)
+{
+	this.shielding -= damage;
+	
+	if(this.shielding <= 0)
+	{
+		this.explode();
+	}
+}
+
+Projectile.prototype.explode = function()
+{
+	Objedex.Projectiles.remove(this);
 }
 
 Projectile.prototype.update = function()
@@ -47,8 +61,8 @@ Projectile.prototype.update = function()
 	{
 		if(this.isOverlapping(that))
 		{
-			that.damageShields(10);
-			Objedex.Projectiles.remove(this);
+			this.damageShielding(10);
+			that.damageShielding(10);
 		}
 	}
 	.bind(this));

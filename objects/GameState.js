@@ -32,6 +32,8 @@ var states = {
 		{
 			Levelqueue.reset();
 			Objedex.Shmuper27s.reset();
+			Objedex.Projectiles.reset();
+			Objedex.RebelCruisers.reset();
 		}
 	},
 	"not playing": {
@@ -41,7 +43,7 @@ var states = {
 			
 			while(key.hasEvent())
 			{
-				if(key.getEvent() == 90)
+				if(key.getEvent() == 32)
 				{
 					Game.state.load("playing");
 				}
@@ -49,9 +51,11 @@ var states = {
 		},
 		start: function()
 		{
+			$("#title.view").show();
 		},
 		end: function()
 		{
+			$("#title.view").hide();
 		}
 	}
 }

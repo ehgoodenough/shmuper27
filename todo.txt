@@ -1,13 +1,11 @@
-PROJECTILE UPDATE
-	EXPLOSION UPDATE
-	GAME OVER UPDATE
-	OVERHEAD GUI UPDATE
 GAMESTATE UPDATE
-	BETTER GAMESTATE UPDATE
-	TITLESCREEN UPDATE
-	CONTROL MENU UPDATE
-	MULTIPLAYER UPDATE
-VIEWS/LAYERS UPDATE
+	!!BETTER GAMESTATE UPDATE
+	!!TITLESCREEN UPDATE
+VIEWS AND LAYERS UPDATE
+POWERUP UPDATE
+	EXPLOSION UPDATE
+	PICKUP UPDATE
+	WEAPON CLASS UPDATE
 BOSS BATTLE UPDATE
 MEDIA UPDATE
 	IMAGE UPDATE
@@ -15,8 +13,7 @@ MEDIA UPDATE
 		ANIMATION UPDATE?
 	SOUND UPDATE
 		MUSIC UPDATE?
-LEVEL UPDATE
-	EDITOR UPDATE?
+LEVEL EDITOR UPDATE
 
 FRAMERATE UPDATE: To ensure consistent performance across all computers, use the framerate in the gameloop to compensate for different processors by multiplying it against everything.
 COMMON FUNCTION UPDATE: If objects with different purposes but similar contexts use identical functions, instantiate it elsewhere and share it between the objects. Inheritence?
@@ -27,3 +24,9 @@ gameloop? gamestate? gamelevel? gamescreen?!
 Aren't some of them supposed to be singletons?
 Why instantiate subchildren objects? Reimplement it!
 How to load new levels? By creating another object?
+
+
+CODESMELLS
+	SYSTEM OF LAYERS to hide and shoe information relevant to the gamestate
+	PUT DATA IN STATE to deconstruct it using the garbage collector instead
+	SHARE COMMON FUNCTIONS between RebelCruiser, Shmuper27 and Projectiles

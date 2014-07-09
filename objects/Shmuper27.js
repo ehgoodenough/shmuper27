@@ -10,9 +10,9 @@ function Shmuper27()
 	this.speed = Game.screen.getScale() / 10;
 	
 	this.model = Shmuper27.getModel();
-	this.shields = Shmuper27.getShielding();
+	this.shielding = Shmuper27.getShielding();
 	
-	this.cooldown = 0;
+	this.cooldown = 25;
 	
 	this.controlScheme = Shmuper27.getControlScheme(this.objid);
 }
@@ -48,11 +48,11 @@ Shmuper27.prototype.moveRight = function()
 	else {this.position.x = Game.screen.getWidth();}
 }
 
-Shmuper27.prototype.damageShields = function(damage)
+Shmuper27.prototype.damageShielding = function(damage)
 {
-	this.shields -= damage;
+	this.shielding -= damage;
 	
-	if(this.shields <= 0)
+	if(this.shielding <= 0)
 	{
 		this.explode();
 	}
@@ -73,6 +73,16 @@ Shmuper27.prototype.isOverlapping = function(that)
 	collisionDistance -= Game.screen.getScale() / 8;
 	
 	return currentDistance <= collisionDistance;
+}
+
+Shmuper27.prototype.getShielding = function()
+{
+	return this.shielding;
+}
+
+Shmuper27.prototype.getShieldingPercentage = function()
+{
+	return (this.getShielding() / Shmuper27.getShielding()).toFixed(2) + "%";
 }
 
 Shmuper27.prototype.update = function()
@@ -105,8 +115,8 @@ Shmuper27.prototype.update = function()
 	{
 		if(this.isOverlapping(that))
 		{
-			this.damageShields(5);
-			that.damageShields(5);
+			this.damageShielding(5);
+			that.damageShielding(5);
 			
 			if(this.position.y < that.position.y)
 			{
@@ -122,7 +132,7 @@ Shmuper27.prototype.update = function()
 	}
 	.bind(this));
 	
-	$("#debug").text(this.shields + "%");
+	$("#overhead > #shielding").text(this.getShieldingPercentage());
 }
 
 Shmuper27.prototype.render = function()
@@ -145,7 +155,6 @@ Shmuper27.getModel = function()
 
 Shmuper27.getShielding = function()
 {
-	return 1000; //debug
 	return 100;
 }
 
