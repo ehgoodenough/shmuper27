@@ -72,5 +72,6 @@ var Objedex = new function()
 {
 	this.Stars = new ObjedexEntry();
 	this.Shmuper27s = new ObjedexEntry();
+	this.Projectiles = new ObjedexEntry();
 	this.RebelCruisers = new ObjedexEntry();
 }

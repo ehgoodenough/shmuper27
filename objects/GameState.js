@@ -8,9 +8,11 @@ var states = {
 				Objedex.Stars.update();
 				Objedex.Shmuper27s.update();
 				Objedex.RebelCruisers.update();
+				Objedex.Projectiles.update();
 			}
 			
 			Objedex.Stars.render();
+			Objedex.Projectiles.render();
 			Objedex.RebelCruisers.render();
 			Objedex.Shmuper27s.render();
 			
@@ -28,7 +30,7 @@ var states = {
 		},
 		end: function()
 		{
-			Levelqueue.index = 1;
+			Levelqueue.reset();
 			Objedex.Shmuper27s.reset();
 		}
 	},

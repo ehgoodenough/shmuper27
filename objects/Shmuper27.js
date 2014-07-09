@@ -12,6 +12,8 @@ function Shmuper27()
 	this.model = Shmuper27.getModel();
 	this.shields = Shmuper27.getShielding();
 	
+	this.cooldown = 0;
+	
 	this.controlScheme = Shmuper27.getControlScheme(this.objid);
 }
 
@@ -84,6 +86,18 @@ Shmuper27.prototype.update = function()
 	if(key.getState(this.controlScheme["use weapon"]))
 	{
 		console.log("pew pew pew!");
+		
+		if(this.cooldown <= 0)
+		{
+			this.cooldown = 8;
+			var direction = degress2radians(90);
+			new Projectile(this.position, direction, this.speed * 2);
+		}
+	}
+	
+	if(this.cooldown > 0)
+	{
+		this.cooldown--;
 	}
 	
 	Objedex.RebelCruisers.foreach(function(that)
@@ -155,4 +169,9 @@ Shmuper27.getControlScheme = function(objid)
 	];
 	
 	return ControlSchemes[objid];
+}
+
+function degrees2radians(angle)
+{
+	return angle * (Math.PI / 180);
 }

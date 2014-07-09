@@ -14,3 +14,8 @@ Levelqueue.get = function(index)
 	index = index || this.index++;
 	return this.levels[index];
 }
+
+Levelqueue.reset = function()
+{
+	this.index = 0;
+}
