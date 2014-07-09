@@ -19,7 +19,7 @@ body
 	height: 270px;
 	overflow: hidden;
 	
-	background-color: #0C0C0C;
+	background-color: #111;
 }
 
 a
@@ -33,6 +33,12 @@ a[href] > span
 	text-decoration: underline;
 }
 
+a:not([href]) > span
+{
+	color: #888;
+	text-decoration: line-through;
+}
+
 ul
 {
 	padding: 0px;
@@ -41,10 +47,10 @@ ul
 
 #game
 {
-	top: 0em;
-	left: 0em;
-	right: 0em;
-	bottom: 0em;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
 	margin: auto;
 	position: fixed;
 }
@@ -58,13 +64,12 @@ ul
 
 #game > canvas.view
 {
+	z-index: 0;
 	background-color: #222;
 }
 
-#game > #title-screen.view
+#game > #menu.view
 {
-	z-index: 4;
-	
 	top: 0em;
 	left: 0em;
 	right: 0em;
@@ -76,36 +81,51 @@ ul
 	position: absolute;
 	box-sizing: border-box;
 	
+	z-index: 4;
 	text-align: center;
 	border-radius: 4px;
-	/*background-color: rgba(231, 76, 60, 0.85);*/
 }
 
-#game > #title-screen.view > h1
+#game > #menu.view > h1
 {
+	margin-bottom: 1rem;
+	
 	font-size: 2rem;
+	text-shadow: 2px 2px #888;
 }
 
-#game > #title-screen.view > ul
-{
-	margin-top: 1rem;
-}
-
-#game > #title-screen.view > ul > li
+#game > #menu.view > ul > li
 {
 	margin: 0.5rem;
 }
 
-#game > #overhead-interface.view
+#game > #status.view
 {
 	z-index: 1;
 }
 
-#game > #overhead-interface.view > #shielding
+#game > #status.view > #shielding
 {
 	top: 1rem;
 	left: 1rem;
 	position: absolute;
+}
+
+#game > #paused.view
+{
+	top: 0em;
+	left: 0em;
+	right: 0em;
+	bottom: 0em;
+	margin: auto;
+	width: 480px;
+	height: 3rem;
+	position: absolute;
+	box-sizing: border-box;
+	
+	z-index: 4;
+	text-align: center;
+	border-radius: 4px;
 }
 
 @media(min-aspect-ratio: 16/9)

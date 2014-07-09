@@ -27,7 +27,7 @@
 		<link href="game.css" rel="stylesheet" type="text/css"/>
 		
 		<div id="game">
-			<div id="title-screen" class="view">
+			<div id="menu" class="view">
 				<h1>Shmuper27</h1>
 				<ul>
 					<li>
@@ -62,11 +62,15 @@
 					</li>
 				</ul>
 			</div>
-			<div id="overhead-interface" class="view" style="display: none;">
+			<div id="status" class="view" style="display: none;">
 				<div id="shielding">
 					<i class="fa fa-heart"></i>
 					<span id="value"></span>
 				</div>
+			</div>
+			<div id="paused" class="view" style="display: none;">
+				<h2>PAUSED</h2>
+				<span>Hit spacebar to continue.</span>
 			</div>
 		</div>
 	</body>

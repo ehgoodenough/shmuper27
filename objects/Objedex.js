@@ -17,19 +17,19 @@ ObjedexEntry.prototype.remove = function(stuff)
 	delete this.stuff[objid];
 }
 
-ObjedexEntry.prototype.update = function(stuff)
+ObjedexEntry.prototype.update = function(delta)
 {
-	stuff = stuff || this.stuff;
+	delta = delta || 1;
 	
-	if(stuff.update)
+	if(this.stuff.update)
 	{
-		stuff.update();
+		this.stuff.update(delta);
 	}
 	else
 	{
-		for(var s in stuff)
-			if(stuff[s].update)
-				this.update(stuff[s]);
+		for(var s in this.stuff)
+			if(this.stuff[s].update)
+				this.stuff[s].update(delta);
 	}
 }
 

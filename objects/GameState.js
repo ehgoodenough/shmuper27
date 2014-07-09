@@ -5,7 +5,7 @@ var states = {
 			if(!this.paused)
 			{
 				Game.level.update();
-				Objedex.Stars.update();
+				Objedex.Stars.update(1);
 				Objedex.Shmuper27s.update();
 				Objedex.RebelCruisers.update();
 				Objedex.Projectiles.update();
@@ -20,7 +20,16 @@ var states = {
 			{
 				if(key.getEvent() == 32)
 				{
-					this.paused = !this.paused;
+					if(this.paused)
+					{
+						$("#paused").hide();
+						this.paused = false;
+					}
+					else
+					{
+						$("#paused").show();
+						this.paused = true;
+					}
 				}
 			}
 		},
@@ -28,7 +37,7 @@ var states = {
 		{
 			new Shmuper27();
 			
-			$("#overhead-interface").show();
+			$("#status").show();
 		},
 		end: function()
 		{
@@ -37,13 +46,13 @@ var states = {
 			Objedex.Projectiles.reset();
 			Objedex.RebelCruisers.reset();
 			
-			$("#overhead-interface").fadeOut();
+			$("#status").fadeOut();
 		}
 	},
 	"not playing": {
 		loop: function()
 		{
-			//Objedex.Stars.update();
+			Objedex.Stars.update(0.25);
 			Objedex.Stars.render();
 			
 			while(key.hasEvent())
@@ -56,11 +65,11 @@ var states = {
 		},
 		start: function()
 		{
-			$("#title-screen").fadeIn();
+			$("#menu").fadeIn();
 		},
 		end: function()
 		{
-			$("#title-screen").hide();
+			$("#menu").hide();
 		}
 	}
 }

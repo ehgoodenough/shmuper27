@@ -9,7 +9,7 @@ for(var i = 0; i < 100; i++)
 	new Star(i % Game.level.getOriginalSpeed());
 }
 
-$("#title-screen").ready(function()
+$("#menu").ready(function()
 {
 	$(this).hide();
 	
@@ -20,7 +20,7 @@ $("#title-screen").ready(function()
 	});
 });
 
-$("#overhead-interface").ready(function()
+$("#status").ready(function()
 {
 	$(this).css("display", "none");
 });

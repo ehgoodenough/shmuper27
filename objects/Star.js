@@ -34,11 +34,11 @@ function Star(parallax)
 	this.color = Star.getRandomColor();
 }
 
-Star.prototype.update = function()
+Star.prototype.update = function(delta)
 {
 	//Move the star to the left, respecting both the parallax
 	//of the star as well as the speed of the oncoming starship.
-	this.position.x -= Game.level.getCurrentSpeed() - this.parallax;
+	this.position.x -= (Game.level.getCurrentSpeed() - this.parallax) * delta;
 	
 	//If the star has moved completely beyond the edge of the screen..
 	if(this.position.x <= 0 - Game.level.getCurrentSpeed())
